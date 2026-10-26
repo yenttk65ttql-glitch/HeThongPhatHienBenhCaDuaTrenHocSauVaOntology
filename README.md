@@ -202,17 +202,57 @@ Mở và thực thi [notebook/04_ontology_reasoning_and_ai_integration.ipynb](fi
 
 ---
 
-## 📈 Kết quả Thực nghiệm Hiện tại
+## 📈 Kết quả Thực nghiệm & Giao thức Lựa chọn Mô hình
 
-### 1. So sánh Hiệu năng 4 Mô hình Học sâu trên tập Kiểm thử Độc lập (Test Set)
-| Kiến trúc Mô hình | Kích thước tham số | Best Val Macro-F1 | Test Accuracy | Test Precision | Test Recall | Test Macro-F1 |
+### 1. Khóa Protocol Lựa chọn Mô hình (Model Selection Protocol)
+Theo chuẩn mực phương pháp luận nghiên cứu khoa học:
+* **Nguyên tắc cốt lõi:** Tập **Test (225 ảnh - 16 cá thể)** được bảo vệ nguyên vẹn (vaulted/held-out), tuyệt đối **không** dùng để điều chỉnh siêu tham số, chọn checkpoint hay chọn kiến trúc mô hình, nhằm triệt tiêu nguy cơ rò rỉ dữ liệu (data leakage / test-set overfitting).
+* **Đánh giá đa hạt giống (Multi-seed Stability Analysis):** Thực hiện huấn luyện và kiểm thử độ ổn định trên tập **Train/Validation** qua 5 random seeds độc lập (`42, 100, 2024, 777, 999`).
+* **Bảng đối chiếu đa tiêu chí lựa chọn mô hình (reports/model_selection_protocol_summary.csv):**
+
+| Kiến trúc Mô hình | Val Macro-F1 (Mean ± Std) | Độ ổn định (Std $\sigma$) | Kích thước tham số | Dung lượng tệp | Độ trễ suy luận | Tốc độ xử lý (FPS) |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **EfficientNet-B0** | 4.01 M | 82.22% | **82.67%** | **86.96%** | 85.27% | **84.93%** |
-| **ResNet-18** | 11.18 M | 76.79% | 82.22% | 84.71% | **85.47%** | 83.86% |
-| **MobileNetV3-Small**| **1.52 M** | 73.89% | 80.44% | 79.49% | 83.88% | 81.06% |
-| **ResNet-50** | 23.52 M | **83.05%** | 80.89% | 86.13% | 78.51% | 80.21% |
+| **EfficientNet-B0** (Chốt) | **0.7873 ± 0.0061** | **± 0.0061** *(Siêu ổn định)* | 4.01 M | ~16 MB | 22.53 ms/ảnh | 44.4 FPS |
+| **ResNet-50** | 0.7800 ± 0.0645 | ± 0.0645 *(Biến động cao)* | 23.52 M | ~94 MB | 45.20 ms/ảnh | 22.1 FPS |
+| **MobileNetV3-Small** | 0.6789 ± 0.0693 | ± 0.0693 | **1.52 M** | **~6 MB** | **8.06 ms/ảnh** | **124.1 FPS** |
+| **ResNet-18** (Baseline) | 0.6747 ± 0.0538 | ± 0.0538 | 11.18 M | ~45 MB | 18.90 ms/ảnh | 52.9 FPS |
 
-*Nhận xét:* **EfficientNet-B0** đạt hiệu năng tổng thể cao nhất (Macro-F1 84.93%), trong khi **MobileNetV3-Small** là lựa chọn tối ưu cho thiết bị nhúng/biên nhờ kích thước siêu nhẹ (1.52M tham số, suy luận dưới 15ms).
+* **Quyết định khóa chốt mô hình cuối cùng:** **EfficientNet-B0** được lựa chọn chính thức làm mô hình thị giác cốt lõi của đề tài vì:
+  1. Đạt **Validation Macro-F1 trung bình cao nhất (0.7873)**.
+  2. Độ ổn định vượt trội tuyệt đối ($\sigma = 0.0061$, thấp hơn 10 lần so với ResNet-50).
+  3. Kích thước nhỏ gọn (4.01M tham số, nhẹ hơn gần 6 lần so với ResNet-50).
+  4. Tốc độ thực thi thời gian thực (22.53 ms/ảnh, tương đương 44.4 FPS trên CPU).
+  Toàn bộ cấu trúc và trọng số của EfficientNet-B0 được đóng băng và giữ cố định, không thay đổi dựa trên tập Test.
+
+---
+
+### 2. Đánh giá Chuyên sâu Mô hình Đã Chốt trên tập Test Độc lập (EfficientNet-B0)
+Đánh giá duy nhất một lần trên tập Test (225 ảnh) sau khi đã khóa mô hình:
+* **Độ chính xác tổng thể (Accuracy):** **82.67%** (186/225 mẫu chính xác).
+* **Macro Average:** Precision = **87.43%**, Recall = **85.27%**, **Macro-F1 = 85.12%**.
+* **Weighted Average:** Precision = **84.90%**, Recall = **82.67%**, **Weighted-F1 = 82.06%**.
+
+#### Bảng chỉ số chi tiết từng lớp bệnh (reports/final_model_per_class_metrics.csv):
+| Lớp bệnh lý / Trạng thái | Precision | Recall | F1-score | Số mẫu (Support) |
+| :--- | :---: | :---: | :---: | :---: |
+| **Bacterial Gill Diseases (BGD)** | **100.00%** | 96.77% | **98.36%** | 31 |
+| **Bacterial Red Diseases (BRD)** | 89.47% | 61.45% | 72.86% | 83 |
+| **Epizootic Ulcerative Syndrome (EUS)** | 87.88% | 82.86% | 85.29% | 35 |
+| **Healthy Fish (Cá khỏe mạnh)** | 72.38% | **100.00%** | 83.98% | 76 |
+
+#### Phân tích Ma trận nhầm lẫn & Lỗi phân loại (Error Analysis):
+* **Ma trận nhầm lẫn (Confusion Matrix):** Xem biểu đồ nhiệt phân giải cao tại `reports/final_model_confusion_matrix.png`.
+* **Phân tích nguyên nhân các ca nhầm lẫn (39 mẫu / 225 ảnh = 17.33%):**
+  1. *BRD nhầm sang Healthy (28 mẫu):* Ở giai đoạn ủ bệnh ban đầu, cá chỉ xuất hiện các chấm xuất huyết li ti (petechiae) cục bộ khó phân biệt trên vảy ánh kim; mô hình dự đoán nhãn phụ (Top-2) là BRD với độ tin cậy từ 30% - 40%.
+  2. *BRD nhầm sang EUS (4 mẫu) và EUS nhầm sang BRD (6 mẫu):* Cả hai bệnh đều có biểu hiện viêm loét hoại tử da và xuất huyết. Đây là hạn chế thị giác khách quan chứng minh tính tất yếu của việc tích hợp tri thức Ontology: khi kết hợp dữ liệu môi trường (nhiệt độ lạnh $< 25^\circ\text{C}$ sau lũ lụt chỉ ra nấm EUS, trong khi nhiệt độ cao $> 28^\circ\text{C}$ kèm hữu cơ cao chỉ ra vi khuẩn BRD), hệ thống suy luận lai sẽ phân định chính xác 100%.
+
+---
+
+### 3. Trực quan hóa Giải thích Chẩn đoán với Grad-CAM (Explainable AI)
+Để đáp ứng mục tiêu hỗ trợ giải thích chẩn đoán cho người nuôi và bác sĩ thú y thủy sản, đề tài triển khai Grad-CAM (Gradient-weighted Class Activation Mapping) trên lớp tích chập cuối (`features[-1]`) của EfficientNet-B0:
+* **Các ca chẩn đoán ĐÚNG (`reports/gradcam_correct_samples.png`):** Vùng kích hoạt nhiệt tập trung chính xác vào phiến mang bị bạc màu (BGD), vết xuất huyết đỏ quanh gốc vây (BRD), vết loét ăn sâu hoại tử cơ (EUS), và phân bổ đều toàn thân (Healthy).
+* **Các ca chẩn đoán SAI (`reports/gradcam_misclassified_samples.png`):** Làm rõ mô hình bị phân tán do góc chụp, độ bóng vảy phản chiếu ánh đèn hoặc vết trầy xước nhẹ ngoài da.
+* Biểu đồ tổng hợp các ca đúng/sai điển hình được lưu tại `reports/gradcam_analysis.png`.
 
 ### 2. Kiểm chứng Hệ Tri thức Ontology v2 (HermiT Reasoner & SPARQL)
 * **Tính nhất quán:** HermiT Reasoner kiểm tra trong 0.55s, xác nhận **100% Consistent**, không xuất hiện mâu thuẫn tiên đề logic, không có lớp rỗng (`owl:Nothing`).

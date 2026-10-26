@@ -5,6 +5,7 @@
 # 1. Dữ liệu hình ảnh thô và tệp trung gian (Dataset)
 data/raw/
 data/processed/
+data/cache_224/
 data/*.zip
 data/*.tar.gz
 audit_phash_samples/
