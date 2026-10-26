@@ -1,0 +1,142 @@
+@startuml ERD_He_Thong_Chan_Doan_Benh_Ca
+!theme plain
+skinparam linetype ortho
+skinparam shadowing false
+skinparam roundcorner 5
+skinparam classFontSize 12
+skinparam classFontName "Segoe UI"
+skinparam classAttributeFontSize 11
+skinparam classBackgroundColor #FFFFFF
+skinparam classBorderColor #4A5568
+
+title SƠ ĐỒ QUAN HỆ THỰC THỂ (ERD) - HỆ THỐNG HỖ TRỢ CHẨN ĐOÁN BỆNH CÁ\n(Tích hợp Ontology & Deep Learning - Cập nhật theo góp ý GVHD đợt 2)
+
+entity "users" as users {
+  * user_id : INT <<PK, AUTO>>
+  --
+  * username : VARCHAR(50)
+  * email : VARCHAR(100)
+  * password_hash : VARCHAR(255)
+  * role : VARCHAR(20)
+  * created_at : TIMESTAMP
+}
+
+entity "diagnostic_cases" as diagnostic_cases {
+  * case_id : INT <<PK, AUTO>>
+  --
+  * user_id : INT <<FK>>
+  * fish_species_uri : VARCHAR(255)
+  * case_title : VARCHAR(150)
+  * notes : TEXT
+  * created_at : TIMESTAMP
+}
+
+entity "symptoms" as symptoms {
+  * symptom_code : VARCHAR(50) <<PK>>
+  --
+  * symptom_name : VARCHAR(150)
+  * symptom_uri : VARCHAR(255)
+  * description : TEXT
+}
+
+entity "case_symptoms" as case_symptoms {
+  * case_id : INT <<PK, FK1>>
+  * symptom_code : VARCHAR(50) <<PK, FK2>>
+  --
+  * severity_level : VARCHAR(20)
+  * observed_at : TIMESTAMP
+}
+
+entity "water_measurements" as water_measurements {
+  * measurement_id : INT <<PK, AUTO>>
+  --
+  * case_id : INT <<FK>>
+  * temperature : FLOAT
+  * ph : FLOAT
+  * dissolved_oxygen : FLOAT
+  * ammonia : FLOAT
+  * nitrite : FLOAT
+  * alkalinity : FLOAT
+  * turbidity : FLOAT
+  * measured_at : TIMESTAMP
+}
+
+entity "case_images" as case_images {
+  * image_id : INT <<PK, AUTO>>
+  --
+  * case_id : INT <<FK>>
+  * image_path : VARCHAR(255)
+  * specimen_id : VARCHAR(50)
+  * uploaded_at : TIMESTAMP
+}
+
+entity "model_runs" as model_runs {
+  * run_id : INT <<PK, AUTO>>
+  --
+  * model_name : VARCHAR(100)
+  * model_version : VARCHAR(50)
+  * ontology_version : VARCHAR(50)
+  * weights_path : VARCHAR(255)
+  * macro_f1_score : FLOAT
+  * trained_at : TIMESTAMP
+}
+
+entity "ai_predictions" as ai_predictions {
+  * prediction_id : INT <<PK, AUTO>>
+  --
+  * image_id : INT <<FK1>> -- Góp ý GVHD: liên kết trực tiếp ảnh gốc
+  * run_id : INT <<FK2>> -- Truy xuất lineage mô hình
+  * case_id : INT <<FK3>> -- Ca chẩn đoán tổng thể
+  * predicted_class_name : VARCHAR(100)
+  * confidence_score : FLOAT
+  * inference_time_ms : FLOAT
+  * predicted_at : TIMESTAMP
+}
+
+entity "reasoning_results" as reasoning_results {
+  * result_id : INT <<PK, AUTO>>
+  --
+  * case_id : INT <<FK>>
+  * ontology_version : VARCHAR(50)
+  * inferred_disease_name : VARCHAR(100)
+  * inferred_disease_uri : VARCHAR(255)
+  * conflict_detected : BOOLEAN
+  * evidence_json : TEXT
+  * reasoning_engine : VARCHAR(50)
+  * reasoned_at : TIMESTAMP
+}
+
+entity "recommendations" as recommendations {
+  * recommendation_id : INT <<PK, AUTO>>
+  --
+  * result_id : INT <<FK1>> -- Góp ý GVHD: truy vết kết quả suy luận & phiên bản tri thức
+  * case_id : INT <<FK2>> -- Ca chẩn đoán liên quan
+  * treatment_guide : TEXT
+  * prevention_guide : TEXT
+  * water_adjustment_guide : TEXT
+  * confidence_level : VARCHAR(20)
+  * created_at : TIMESTAMP
+}
+
+' ==========================================
+' MỐI QUAN HỆ GIỮA CÁC THỰC THỂ (RELATIONSHIPS)
+' ==========================================
+
+users ||--o{ diagnostic_cases : "tạo (1:N)"
+
+diagnostic_cases ||--o{ case_symptoms : "chứa (1:N)"
+symptoms ||--o{ case_symptoms : "được gắn vào (1:N)"
+
+diagnostic_cases ||--o{ water_measurements : "đo môi trường (1:N)"
+diagnostic_cases ||--o{ case_images : "thu thập ảnh (1:N)"
+
+case_images ||--o{ ai_predictions : "dự đoán trên ảnh (1:N)"
+model_runs ||--o{ ai_predictions : "thực thi dự đoán (1:N)"
+diagnostic_cases ||--o{ ai_predictions : "tổng hợp dự đoán (1:N)"
+
+diagnostic_cases ||--o{ reasoning_results : "suy luận bệnh (1:N)"
+
+reasoning_results ||--o{ recommendations : "sinh phác đồ (1:N)"
+diagnostic_cases ||--o{ recommendations : "nhận khuyến nghị (1:N)"
+
+@enduml
