@@ -1,0 +1,5 @@
+Config Name,Tên cấu hình,w_AI,w_Symptom,w_Water,Concordance Rate (Độ khớp GT),Mean Support Score,Std Support Score,Min Score,Max Score,Median Score,Số ca kích hoạt mâu thuẫn,Cơ sở lý giải
+Config_1_VisionHeavy,Ưu tiên Thị giác (0.60 - 0.30 - 0.10),0.6,0.3,0.1,0.823,0.825,0.1428,0.5546,0.9991,0.8466,9,Ưu tiên mô hình thị giác AI; triệu chứng và môi trường đóng vai trò kiểm tra phụ trợ.
+Config_2_BalancedBaseline,Cân bằng Lâm sàng (0.50 - 0.35 - 0.15),0.5,0.35,0.15,0.823,0.8146,0.1521,0.5688,0.9993,0.8722,9,"Cấu hình cân bằng lâm sàng: AI giữ vai trò định hướng chính (0.50), triệu chứng xác nhận thứ cấp (0.35), môi trường đóng vai trò xúc tác/kích phát (0.15)."
+Config_3_ClinicalHeavy,Ưu tiên Lâm sàng & Dịch tễ (0.40 - 0.40 - 0.20),0.4,0.4,0.2,0.823,0.8043,0.1643,0.5427,0.9994,0.8796,9,"Đồng đều AI và triệu chứng lâm sàng (mỗi bên 0.40), tăng tỷ trọng môi trường nước lên 0.20."
+Config_4_EqualWeights,Trọng số Cân bằng Đều (0.33 - 0.33 - 0.34),0.333,0.333,0.334,0.823,0.8178,0.1323,0.6193,0.9995,0.8715,9,Coi 3 nguồn bằng chứng có giá trị đóng góp ngang nhau trong quyết định chẩn đoán.

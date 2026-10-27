@@ -38,7 +38,6 @@ PREFIX fdo: <http://www.semanticweb.org/fish-disease-ontology#>
 - disease: http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease | diseaseLabel: Bệnh đốm đỏ do vi khuẩn | symptomLabel: Vết loét da xuất huyết cơ  
 - disease: http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease | diseaseLabel: Bệnh đốm đỏ do vi khuẩn | symptomLabel: Chướng bụng, sưng hậu môn  
 - disease: http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease | diseaseLabel: Bệnh đốm đỏ do vi khuẩn | symptomLabel: Loét da và xuất huyết  
-- disease: http://www.semanticweb.org/fish-disease-ontology#Enteric_Septicemia_Catfish | diseaseLabel: Bệnh gan thận mủ ở cá tra | symptomLabel: Đốm trắng trên da và mang  
 
 
 ### CQ2: Hội chứng lở loét dịch tễ (EUS) do tác nhân sinh học nào gây ra và thuộc phân loại bệnh nào?

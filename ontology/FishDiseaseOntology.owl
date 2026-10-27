@@ -7,44 +7,126 @@
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
 >
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Oreochromis_niloticus">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#FungalDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:label xml:lang="en">Fungal Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh do nấm và nấm nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các bệnh do vi nấm thật hoặc sinh vật giả nấm dạng sợi (Oomycetes) gây hoại tử biểu bì và mô cơ cá.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf954aabfc5cc4904819b4af36189d332">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
+    <rdfs:subClassOf rdf:nodeID="Nb91f899bffc44ccf9e19009f7c24792b"/>
+    <rdfs:subClassOf rdf:nodeID="N5b11d93db9a542fab23c18ea8324348a"/>
+    <rdfs:subClassOf rdf:nodeID="N2391abeae3a34dcf86e812b8a0a14b74"/>
+    <rdfs:subClassOf rdf:nodeID="N22867418b47d4c1f978e4231b9f4c59d"/>
+    <rdfs:subClassOf rdf:nodeID="Nace6028f134144849096c9800c14d2d4"/>
+    <rdfs:label xml:lang="en">Bacterial Gill Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh thối mang do vi khuẩn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh do vi khuẩn Flavobacterium branchiophilum gây ra, làm mang cá bị hoại tử, tơ mang rách xơ xác và tiết nhiều nhớt.</rdfs:comment>
+    <dc:source>Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ (2014); QCVN 02-19:2014/BNNPTNT.</dc:source>
+    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare_Strain_FC02"/>
+    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Observation_01"/>
+    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol"/>
+    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant"/>
+    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Pangasius_hypophthalmus">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">Nile Tilapia</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá rô phi</rdfs:label>
-    <rdfs:comment xml:lang="vi">Loài cá nuôi phổ biến, chịu được biến động môi trường.</rdfs:comment>
+    <rdfs:label xml:lang="en">Striped Catfish</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá tra</rdfs:label>
+    <rdfs:comment xml:lang="vi">Loài cá nước ngọt xuất khẩu chủ lực vùng ĐBSCL.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#affectsSpecies">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Saprolegnia_parasitica">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Saprolegnia parasitica</rdfs:label>
+    <rdfs:label xml:lang="vi">Nấm thủy mi Saprolegnia</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nấm nước gây màng nấm bông trắng trên cá bị thương tổn biểu bì.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#suspectedDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">suspected disease</rdfs:label>
+    <rdfs:label xml:lang="vi">bệnh nghi ngờ ban đầu</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh lý ban đầu được đưa vào xem xét trước khi suy luận logic.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7ec14fd3863349769ba6407102d9c15a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_002_BRD_Consistent">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:label xml:lang="vi">Ca chẩn đoán 002 - Bệnh đốm đỏ (Đồng thuận)</rdfs:label>
+    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02"/>
+    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.915</confidenceScore>
+    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#causedBy">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">affects species</rdfs:label>
-    <rdfs:label xml:lang="vi">ảnh hưởng đến loài cá</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết bệnh với loài cá mẫn cảm hoặc chịu tác động.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">caused by</rdfs:label>
+    <rdfs:label xml:lang="vi">gây ra bởi</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết bệnh với tác nhân vi sinh vật gây bệnh tương ứng.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#temperatureValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterTemperatureRange"/>
-    <rdfs:label xml:lang="en">temperature value</rdfs:label>
-    <rdfs:label xml:lang="vi">giá trị nhiệt độ</rdfs:label>
-    <rdfs:comment xml:lang="vi">Nhiệt độ nước đo bằng độ C (Khoảng tối ưu cho cá nước ngọt: 26 - 30 °C; &lt;25 °C kích phát nấm EUS).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection"/>
-    <rdfs:label xml:lang="vi">Sát trùng nguồn nước với Iodine 90 (0.4 ppm) hoặc BKC 80% (0.6 ppm)</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N1215d1fed9664929846d9a4a4b707ed9">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#HerbalTreatment">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <rdfs:label xml:lang="en">Herbal Remedy Treatment</rdfs:label>
-    <rdfs:label xml:lang="vi">Trị liệu thảo dược tự nhiên</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bổ sung tinh dầu tỏi (Allicin) 3-5 ml/kg thức ăn để kháng khuẩn tự nhiên.</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:label xml:lang="en">Bacterial Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh do vi khuẩn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các bệnh truyền nhiễm do vi khuẩn Gram âm hoặc Gram dương gây ra trên cá nước ngọt.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#conflictTriggerCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">conflict trigger condition</rdfs:label>
+    <rdfs:label xml:lang="vi">điều kiện kích hoạt mâu thuẫn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tên mã định danh điều kiện gây mâu thuẫn.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Prevention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Prevention</rdfs:label>
+    <rdfs:label xml:lang="vi">Biện pháp phòng bệnh tổng hợp</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các quy trình an toàn sinh học và quản lý môi trường theo quy chuẩn QCVN 02-19:2014/BNNPTNT.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#configRationale">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">config rationale</rdfs:label>
+    <rdfs:label xml:lang="vi">cơ sở khoa học của cấu hình</rdfs:label>
+    <rdfs:comment xml:lang="vi">Giải thích lâm sàng cho việc lựa chọn cấu hình trọng số.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N4f3d77a24def494e8acc1b6bdac65451">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N5932111344e74c729ece7cf0382faf67"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Flavobacterium columnare</rdfs:label>
+    <rdfs:label xml:lang="vi">Vi khuẩn Flavobacterium columnare</rdfs:label>
+    <rdfs:comment xml:lang="vi">Vi khuẩn Gram âm dạng que dài gây bệnh thối mang, đốm trắng mang.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -53,76 +135,20 @@
     <rdfs:label xml:lang="vi">Mang xơ xác, hoại tử mang</rdfs:label>
     <rdfs:comment xml:lang="vi">Mang cá bị rách, bạc màu, dính bùn, nhiều nhớt hoặc hoại tử các tơ mang.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6addb20202ca4d8d8463c005b357a339">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_HighTemp_BacterialStress">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&gt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">30.0</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.3</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Nhiệt độ nước cao (&gt;30.0°C) gia tăng áp lực trao đổi chất và tốc độ phân chia của vi khuẩn cơ hội Aeromonas.</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Duy trì mực nước sâu &gt;1.5m, che lưới lan làm mát bề mặt ao và định kỳ khử trùng bằng Iodine 90 (0.4 ppm).</remedialAction>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_002_BRD_Consistent">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:label xml:lang="vi">Ca chẩn đoán 002 - Bệnh đốm đỏ (Đồng thuận)</rdfs:label>
-    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
-    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
-    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst"/>
-    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.915</confidenceScore>
-    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#suspectedDisease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:label xml:lang="en">suspected disease</rdfs:label>
-    <rdfs:label xml:lang="vi">bệnh nghi ngờ ban đầu</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh lý ban đầu bị nghi ngờ qua quan sát sơ bộ lâm sàng hoặc do mô hình thị giác AI dự đoán trước khi suy luận tổng hợp.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8be8fde4acdb4f2dabae8626663f04f2">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N840f9f1e978b4fea8a74ec0e356af767">
+  <rdf:Description rdf:nodeID="Nb5783221197941d8b7e9b2abece9f641">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
     <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="N7ef04488bce449d5a644c311c5dc3545"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#PHRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">pH Value Range [0.0 - 14.0]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị pH nước ao [0.0 - 14.0]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="Nb1432899590046b4b219bce019ce729b"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Lethargy_Anorexia">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Lethargy and Anorexia</rdfs:label>
-    <rdfs:label xml:lang="vi">Bơi lờ đờ, bỏ ăn</rdfs:label>
-    <rdfs:comment xml:lang="vi">Cá bơi tách đàn, nổi đầu, mất phương hướng hoặc bỏ ăn hoàn toàn.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Saprolegniasis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
-    <rdfs:subClassOf rdf:nodeID="N2b58cf42c3c2432caa6c039ee0015f1c"/>
-    <rdfs:subClassOf rdf:nodeID="Nd1096357910543538904241cbc102ec4"/>
-    <rdfs:label xml:lang="en">Saprolegniasis (Water Mold Disease)</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh nấm thủy mi Saprolegnia</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh nấm bông do nấm nước chi Saprolegnia phát triển thành các búi sợi như bông gòn trên da, vây, mang khi cá bị xây xát hoặc nước lạnh.</rdfs:comment>
-    <dc:source>ĐH Cần Thơ, 2014.</dc:source>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
-    <rdfs:subClassOf rdf:nodeID="N8cadfe3e378847deba10f82cdba92387"/>
-    <rdfs:subClassOf rdf:nodeID="N64a3431d83e44d47abbd38ffa152e143"/>
-    <rdfs:subClassOf rdf:nodeID="Nf8f0a95b301d40ebbdd6ed6dd61e6c0b"/>
-    <rdfs:subClassOf rdf:nodeID="Nb9199fb644604fff9a7c25fe52426230"/>
-    <rdfs:subClassOf rdf:nodeID="Nbe5ae564174246cf943ab5b8c53bf45a"/>
-    <rdfs:label xml:lang="en">Bacterial Gill Disease (BGD)</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh thối mang do vi khuẩn</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh thối mang do vi khuẩn dạng sợi Flavobacterium branchiophilum hoặc Flavobacterium columnare gây hoại tử mô mang cá. Cá thường nổi đầu, mang bạc màu hoặc rách xơ xác.</rdfs:comment>
-    <dc:source>OIE Manual of Diagnostic Tests for Aquatic Animals, 2021; Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ, 2014.</dc:source>
-    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare_Inst"/>
-    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Inst"/>
-    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol"/>
-    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant"/>
-    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
+    <owl:withRestrictions rdf:nodeID="N46f712e4d5ea4f929859052ad8ba254e"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterCondition">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -132,6 +158,520 @@
     <rdfs:comment xml:lang="vi">Tập hợp các chỉ số lý hóa đo được trong môi trường nước ao nuôi.</rdfs:comment>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#confidenceScore">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConfidenceScoreRange"/>
+    <rdfs:label xml:lang="en">confidence score</rdfs:label>
+    <rdfs:label xml:lang="vi">độ tin cậy của AI</rdfs:label>
+    <rdfs:comment xml:lang="vi">Điểm xác suất chuẩn hóa của mô hình Deep Learning.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasWaterCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:label xml:lang="en">has water condition</rdfs:label>
+    <rdfs:label xml:lang="vi">có điều kiện nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết ca bệnh với tập hợp số liệu chất lượng nước ao đo đạc tại thời điểm kiểm tra.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#turbidityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#TurbidityRange"/>
+    <rdfs:label xml:lang="en">turbidity value</rdfs:label>
+    <rdfs:label xml:lang="vi">độ đục / độ trong</rdfs:label>
+    <rdfs:comment xml:lang="vi">Độ trong của nước đo bằng đĩa Secchi.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Cyprinus_carpio">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <rdfs:label xml:lang="en">Common Carp</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá chép</rdfs:label>
+    <rdfs:comment xml:lang="vi">Loài cá nước ngọt phổ biến, hay mắc bệnh thối mang khi mật độ nuôi cao.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N97e108b3f00e4f7691a29004b918ad29">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Excess_Mucus_Production">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">Excess Mucus Secretion</rdfs:label>
+    <rdfs:label xml:lang="vi">Tăng tiết chất nhớt</rdfs:label>
+    <rdfs:comment xml:lang="vi">Da và mang bao phủ một lớp nhớt đục do phản ứng tự vệ chống ký sinh trùng.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Saprolegniasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
+    <rdfs:label xml:lang="en">Saprolegniasis</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh nấm thủy mi</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh do nấm nước Saprolegnia parasitica ký sinh trên các vết thương hở ngoài da, tạo đám sợi bông trắng như búi bông gòn.</rdfs:comment>
+    <dc:source>Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ.</dc:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Aphanomyces invadans</rdfs:label>
+    <rdfs:label xml:lang="vi">Nấm thủy mi Aphanomyces invadans</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nấm nước Oomycete gây hội chứng lở loét biểu mô dịch tễ (EUS).</rdfs:comment>
+    <dc:source>WOAH Aquatic Manual 2021.</dc:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WeightConfig_Baseline">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:label xml:lang="vi">Cấu hình Cân bằng Lâm sàng (Baseline)</rdfs:label>
+    <weightAI rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</weightAI>
+    <weightSymptom rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.35</weightSymptom>
+    <weightWater rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.15</weightWater>
+    <configRationale xml:lang="vi">Cấu hình cân bằng lâm sàng: AI giữ vai trò định hướng chính (0.50), triệu chứng xác nhận thứ cấp (0.35), môi trường đóng vai trò xúc tác/kích phát (0.15).</configRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#affectsSpecies">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <rdfs:label xml:lang="en">affects species</rdfs:label>
+    <rdfs:label xml:lang="vi">ảnh hưởng đến loài cá</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết bệnh với loài cá mẫn cảm hoặc chịu tác động.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:label xml:lang="en">Parasitic Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh do ký sinh trùng</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các bệnh do ngoại ký sinh trùng (trùng bánh xe, sán lá mang, trùng quả dưa) hoặc nội ký sinh trùng.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Fin_Rot">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">Fin Rot and Erosion</rdfs:label>
+    <rdfs:label xml:lang="vi">Thối vây, mòn vây</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các tia vây bị rách nát, cụt dần do vi khuẩn xâm lấn.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ConflictRule_HealthyAI_vs_Pathology">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <conflictingAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
+    <conflictTriggerCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">HAS_PATHOLOGY_SYMPTOMS</conflictTriggerCondition>
+    <conflictDescription xml:lang="vi">Mâu thuẫn phủ định: AI nhận diện là Cá khỏe mạnh nhưng thực tế quan sát thấy tổn thương bệnh lý hoại tử/loét da. Tiên đề tri thức tự động bác bỏ kết quả Healthy của AI.</conflictDescription>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ruleWarningMessage">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">rule warning message</rdfs:label>
+    <rdfs:label xml:lang="vi">thông điệp cảnh báo dịch tễ</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nội dung cảnh báo chuyên ngành giải thích cơ chế sinh học.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WeightConfig_VisionHeavy">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:label xml:lang="vi">Cấu hình Ưu tiên Thị giác AI</rdfs:label>
+    <weightAI rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.6</weightAI>
+    <weightSymptom rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.3</weightSymptom>
+    <weightWater rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.1</weightWater>
+    <configRationale xml:lang="vi">Cấu hình ưu tiên thị giác: Dành cho điều kiện ảnh chụp độ nét cao, biểu hiện vết loét bề mặt rõ rệt.</configRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_BRD_HighAmmonia">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ammonia</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&gt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Khí độc Amoniac cao (&gt;0.5 mg/L) kết hợp dư thừa hữu cơ kích hoạt vi khuẩn xuất huyết Aeromonas hydrophila bùng phát.</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Cắt giảm 50% lượng thức ăn, xi-phông bùn đáy ao và xử lý vi sinh phân hủy chất hữu cơ.</remedialAction>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#conflictDescription">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">conflict description</rdfs:label>
+    <rdfs:label xml:lang="vi">mô tả bản chất mâu thuẫn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Giải thích chuyên môn lý do tại sao AI mâu thuẫn với lâm sàng/dịch tễ.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#VaccinationPrevention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <rdfs:label xml:lang="en">Vaccination Prevention</rdfs:label>
+    <rdfs:label xml:lang="vi">Tiêm phòng vaccine</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tiêm vaccine phòng bệnh gan thận mủ và đốm đỏ ở quy mô cá giống.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#HealthyState">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">Healthy State</rdfs:label>
+    <rdfs:label xml:lang="vi">Trạng thái khỏe mạnh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Trạng thái cá phát triển bình thường, không mang mầm bệnh nguy hiểm, bơi lội nhanh nhẹn, da mang sáng bóng.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <rdfs:label xml:lang="en">Water Quality Management</rdfs:label>
+    <rdfs:label xml:lang="vi">Quản lý chất lượng nước ao</rdfs:label>
+    <rdfs:comment xml:lang="vi">Thay nước định kỳ, tăng cường quạt khí để DO &gt; 4.5 mg/L, rải vôi ổn định pH và kiềm.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
+    <rdfs:subClassOf rdf:nodeID="Ndeb14e0625a04967bf7de69d31cd2798"/>
+    <rdfs:subClassOf rdf:nodeID="N115a3d7049c04655aaba1e4d48043c37"/>
+    <rdfs:subClassOf rdf:nodeID="Nb86d35f636b64b47bd26031e4aa15730"/>
+    <rdfs:subClassOf rdf:nodeID="Nf954aabfc5cc4904819b4af36189d332"/>
+    <rdfs:subClassOf rdf:nodeID="Nfb92427b91ac408a8ae6c6ae9d2f7783"/>
+    <rdfs:label xml:lang="en">Bacterial Red Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh đốm đỏ do vi khuẩn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh xuất huyết do vi khuẩn Aeromonas hydrophila gây ra, biểu hiện bằng các đốm đỏ, xuất huyết dưới da, gốc vây và loét cơ.</rdfs:comment>
+    <dc:source>Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ (2014); Sổ tay chẩn đoán bệnh cá nước ngọt ĐH Nha Trang.</dc:source>
+    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila_Strain_AH01"/>
+    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02"/>
+    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol"/>
+    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Symptom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Symptom</rdfs:label>
+    <rdfs:label xml:lang="vi">Triệu chứng lâm sàng</rdfs:label>
+    <rdfs:comment xml:lang="vi">Dấu hiệu bệnh lý bên ngoài hoặc hành vi bất thường quan sát được trên cá.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Aeromonas hydrophila</rdfs:label>
+    <rdfs:label xml:lang="vi">Vi khuẩn Aeromonas hydrophila</rdfs:label>
+    <rdfs:comment xml:lang="vi">Vi khuẩn Gram âm gây bệnh đốm đỏ, xuất huyết hoại tử.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
+    <rdfs:label xml:lang="vi">Vết loét da xuất huyết cơ</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Diagnostic and Reasoning Rule</rdfs:label>
+    <rdfs:label xml:lang="vi">Luật chẩn đoán và suy luận</rdfs:label>
+    <rdfs:comment xml:lang="vi">Lớp cha biểu diễn mọi quy tắc tri thức, luật dịch tễ học và luật giải quyết mâu thuẫn được lưu trữ trong Ontology.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#associatedWithWaterCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:label xml:lang="en">associated with water condition</rdfs:label>
+    <rdfs:label xml:lang="vi">liên quan điều kiện nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Môi trường nước bất lợi kích phát bệnh bùng phát.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N75738b55768e430b99ff03fceb2586a3">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">100.0</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ConfidenceScoreRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConfidenceScoreRange"/>
+    <owl:equivalentClass rdf:nodeID="Necf7f2b926964feea45480aa17783766"/>
+    <rdfs:label xml:lang="vi">Độ tin cậy xác suất chuẩn hóa [0.0, 1.0]</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#FishCondition">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Fish Condition</rdfs:label>
+    <rdfs:label xml:lang="vi">Tình trạng sức khỏe cá</rdfs:label>
+    <rdfs:comment xml:lang="vi">Lớp gốc bao quát tất cả các trạng thái sinh lý hoặc bệnh lý của cá nuôi.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Decision Weight Configuration</rdfs:label>
+    <rdfs:label xml:lang="vi">Cấu hình trọng số quyết định lai</rdfs:label>
+    <rdfs:comment xml:lang="vi">Định nghĩa cấu hình trọng số cho bộ hỗ trợ quyết định đa tiêu chí (AI, Triệu chứng, Môi trường nước).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasAIPrediction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">has AI prediction</rdfs:label>
+    <rdfs:label xml:lang="vi">có dự đoán từ AI</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nhãn phân loại do mô hình học sâu (Deep Learning) nhận diện từ hình ảnh của ca.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Abdominal_Distension">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">Abdominal Distension</rdfs:label>
+    <rdfs:label xml:lang="vi">Chướng bụng, sưng hậu môn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bụng trướng to chứa dịch vàng hoặc hồng, hậu môn lồi đỏ.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N28ef75b689c04321b95166e69c74d5b7">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_003_EUS_Winter">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:label xml:lang="vi">Ca chẩn đoán 003 - Hội chứng EUS mùa lạnh</rdfs:label>
+    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02"/>
+    <hasWaterCondition rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCond_Case003"/>
+    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.887</confidenceScore>
+    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0e1697aae55a4ef9b10b459c7e065d59">
+    <rdf:first rdf:nodeID="N00c64782871146f5b207a95906428fff"/>
+    <rdf:rest rdf:nodeID="N1a83d48c447d486cb3c0e9504f0797cd"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndeb14e0625a04967bf7de69d31cd2798">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WeightConfig_ClinicalHeavy">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:label xml:lang="vi">Cấu hình Ưu tiên Lâm sàng &amp; Dịch tễ</rdfs:label>
+    <weightAI rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</weightAI>
+    <weightSymptom rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</weightSymptom>
+    <weightWater rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.2</weightWater>
+    <configRationale xml:lang="vi">Cấu hình ưu tiên lâm sàng: Dành cho vùng nuôi đang có dịch tễ phức tạp hoặc ảnh chụp bị nhiễu ánh sáng.</configRationale>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    <rdfs:label xml:lang="en">Diagnostic Case</rdfs:label>
+    <rdfs:label xml:lang="vi">Ca chẩn đoán lâm sàng</rdfs:label>
+    <rdfs:comment xml:lang="vi">Biểu diễn một ca chẩn đoán thực tế tại một ao nuôi/mẫu cá cụ thể. Một instance của DiagnosticCase lưu vết các bằng chứng từ ảnh chụp, triệu chứng quan sát tại chỗ, và đo đạc chất lượng nước để đưa vào bộ suy luận tri thức.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ConflictRule_BRD_AI_vs_EUS_Epidemiology">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <conflictingAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease"/>
+    <resolvedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+    <conflictTriggerCondition rdf:datatype="http://www.w3.org/2001/XMLSchema#string">COLD_WATER_EUS_TRIGGER</conflictTriggerCondition>
+    <conflictDescription xml:lang="vi">Bất đồng chứng cứ dịch tễ: AI dự đoán Bệnh đốm đỏ do vi khuẩn (BRD) do tổn thương ngoài da, nhưng nhiệt độ lạnh (&lt;25.0°C) và pH thấp (&lt;6.5) chỉ ra Hội chứng lở loét (EUS) do nấm Aphanomyces invadans.</conflictDescription>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N00c64782871146f5b207a95906428fff">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <owl:versionIRI rdf:resource="http://www.semanticweb.org/fish-disease-ontology/2.0.0"/>
+    <rdfs:label xml:lang="en">Fish Disease Ontology (FDO v2.0 - Knowledge-Driven Reasoning)</rdfs:label>
+    <rdfs:label xml:lang="vi">Hệ thống tri thức Ontology Chẩn đoán bệnh cá v2.0 (Kiến trúc Suy luận Hướng Tri thức)</rdfs:label>
+    <rdfs:comment xml:lang="vi">Ontology phục vụ chẩn đoán bệnh cá nước ngọt và nước lợ, kết hợp giữa mô hình học sâu (Deep Learning) và hệ suy diễn tri thức (Semantic Web/HermiT/OWL). Toàn bộ luật rủi ro môi trường, ngưỡng sinh thái học, và luật giải quyết mâu thuẫn chẩn đoán được lưu trữ trực tiếp trong Ontology, cho phép truy xuất và thực thi độc lập qua SPARQL/SWRL.</rdfs:comment>
+    <dc:creator>Trương Thị Kim Yên - Chuyên ngành HTTTQL, Trường Đại học Nha Trang</dc:creator>
+    <dc:publisher>Trường Đại học Nha Trang (NTU)</dc:publisher>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#triggersDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:label xml:lang="en">triggers disease</rdfs:label>
+    <rdfs:label xml:lang="vi">kích phát bệnh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết luật rủi ro môi trường với bệnh lý tương ứng.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <rdfs:label xml:lang="en">Environmental Risk Rule</rdfs:label>
+    <rdfs:label xml:lang="vi">Luật rủi ro môi trường nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Quy tắc dịch tễ học môi trường: kích hoạt rủi ro bệnh và cảnh báo khi chỉ số nước vượt ngưỡng sinh thái.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#TurbidityRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#TurbidityRange"/>
+    <owl:equivalentClass rdf:nodeID="N1a50c5534e3340da8e5f5e9469e99911"/>
+    <rdfs:label xml:lang="vi">Miền độ trong đĩa Secchi hợp lệ (0 - 100 cm)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#PHRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#PHRange"/>
+    <owl:equivalentClass rdf:nodeID="N8278082ae51941a993b2ba4acae68264"/>
+    <rdfs:label xml:lang="vi">Miền độ pH hợp lệ (0 - 14)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">has treatment</rdfs:label>
+    <rdfs:label xml:lang="vi">có biện pháp điều trị</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết bệnh với phác đồ thuốc/hóa chất xử lý.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">Skin Ulcers and Hemorrhage</rdfs:label>
+    <rdfs:label xml:lang="vi">Loét da và xuất huyết</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các vết loét, đốm đỏ, hoại tử biểu mô hoặc xuất huyết vây và thân.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#resolvedDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
+    <rdfs:label xml:lang="en">resolved disease</rdfs:label>
+    <rdfs:label xml:lang="vi">bệnh được suy luận điều chỉnh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh lý thực sự được bộ suy luận tri thức chỉ định sau khi gỡ bỏ mâu thuẫn.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_BGD_HighAmmonia">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ammonia</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&gt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.4</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Nồng độ Amoniac TAN cao (&gt;0.5 mg/L) làm tổn thương phiến tơ mang và ức chế khả năng đào thải NH3 qua mang cá.</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Thay 20-30% nước sạch đáy ao; tạt chế phẩm vi sinh Bacillus sp. để hấp thu và chuyển hóa khí độc.</remedialAction>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#NutritionalImmunitySupport">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <rdfs:label xml:lang="en">Nutritional and Immune Support</rdfs:label>
+    <rdfs:label xml:lang="vi">Hỗ trợ dinh dưỡng và miễn dịch</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bổ sung Vitamin C (100-200 mg/kg), Beta-glucan và men vi sinh đường ruột.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb86d35f636b64b47bd26031e4aa15730">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Abdominal_Distension"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Disease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">Disease</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh ở cá</rdfs:label>
+    <rdfs:comment xml:lang="vi">Lớp đại diện cho mọi tình trạng rối loạn cấu trúc hoặc chức năng do tác nhân sinh học hoặc môi trường gây ra.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#weightWater">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">weight for water quality</rdfs:label>
+    <rdfs:label xml:lang="vi">trọng số chất lượng nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hệ số trọng số của rủi ro môi trường nước [0.0 - 1.0].</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_005_Conflict_Warning">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:label xml:lang="vi">Ca chẩn đoán 005 - Cảnh báo mâu thuẫn AI và Triệu chứng lâm sàng</rdfs:label>
+    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
+    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
+    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02"/>
+    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.684</confidenceScore>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasPrevention">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <rdfs:label xml:lang="en">has prevention</rdfs:label>
+    <rdfs:label xml:lang="vi">có biện pháp phòng bệnh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết trạng thái cá với quy trình an toàn sinh học và quản lý môi trường.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nef03b9ffb13f4a03b6bcd9a48a18db7a">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6e96d9bc26b04482b24bb76f0cd67161">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N6abf5856ce7d47dd9cf48bafacbd6578"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
+    <rdfs:subClassOf rdf:nodeID="Nf7d75954cdfc445b82c26ef887791038"/>
+    <rdfs:subClassOf rdf:nodeID="N625de60f30f94beb81f718c3c35a505a"/>
+    <rdfs:subClassOf rdf:nodeID="N97e108b3f00e4f7691a29004b918ad29"/>
+    <rdfs:subClassOf rdf:nodeID="N28ef75b689c04321b95166e69c74d5b7"/>
+    <rdfs:subClassOf rdf:nodeID="N213b0c6f015d4e00baf6599e39a39e7c"/>
+    <rdfs:label xml:lang="en">Epizootic Ulcerative Syndrome (EUS)</rdfs:label>
+    <rdfs:label xml:lang="vi">Hội chứng lở loét dịch tễ (EUS)</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh truyền nhiễm nguy hiểm do sinh vật Oomycete (Aphanomyces invadans) gây ra. Sợi nấm ăn sâu vào mô cơ tạo nên các vết loét hoại tử dạng u hạt (mycotic granulomas). Bệnh thường bùng phát vào mùa lạnh (nhiệt độ &lt; 25°C) hoặc sau mưa lũ kéo dài làm giảm pH nước ao.</rdfs:comment>
+    <dc:source>FAO Fisheries Technical Paper No. 402, Lilley et al. (1997); WOAH Manual of Diagnostic Tests for Aquatic Animals (2021), Chapter 2.3.2.</dc:source>
+    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans_Isolate_NJM9701"/>
+    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcer_Observation_02"/>
+    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Salt_Bath_2Percent"/>
+    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant"/>
+    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterCond_Case003">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <temperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">21.5</temperatureValue>
+    <pHValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.8</pHValue>
+    <dissolvedOxygenValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.8</dissolvedOxygenValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Trichodiniasis">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
+    <rdfs:label xml:lang="en">Trichodiniasis</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh trùng bánh xe</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh do ngoại ký sinh trùng hình đĩa bánh xe Trichodina ký sinh trên mang và da cá, làm cá ngứa ngáy, tăng tiết chất nhớt.</rdfs:comment>
+    <dc:source>Giáo trình Ký sinh trùng Thủy sản, ĐH Thủy sản Nha Trang.</dc:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">Normal Behavior and Appearance</rdfs:label>
+    <rdfs:label xml:lang="vi">Hành vi và ngoại hình bình thường</rdfs:label>
+    <rdfs:comment xml:lang="vi">Cá bơi nhanh nhẹn, ăn khỏe, da vảy và mang sáng bóng nguyên vẹn.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ammoniaValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AmmoniaRange"/>
+    <rdfs:label xml:lang="en">ammonia value (TAN)</rdfs:label>
+    <rdfs:label xml:lang="vi">hàm lượng amoniac</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tổng nồng độ amoniac TAN đo bằng mg/L.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N1c3b6a183d5a486da5cb8b331a05c0c4">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nace6028f134144849096c9800c14d2d4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#alkalinityValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AlkalinityRange"/>
+    <rdfs:label xml:lang="en">alkalinity value</rdfs:label>
+    <rdfs:label xml:lang="vi">độ kiềm</rdfs:label>
+    <rdfs:comment xml:lang="vi">Độ kiềm tính bằng mg/L CaCO3.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd39d33d0e0d14d4998c5301ec4c3dd46">
+    <rdf:first rdf:nodeID="N75738b55768e430b99ff03fceb2586a3"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N2391abeae3a34dcf86e812b8a0a14b74">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#dissolvedOxygenValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DissolvedOxygenRange"/>
+    <rdfs:label xml:lang="en">dissolved oxygen value</rdfs:label>
+    <rdfs:label xml:lang="vi">oxy hòa tan (DO)</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hàm lượng oxy hòa tan đo bằng mg/L.</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#FishSpecies">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -144,14 +684,13 @@
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasAIPrediction">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:label xml:lang="en">has AI prediction</rdfs:label>
-    <rdfs:label xml:lang="vi">có dự đoán từ AI</rdfs:label>
-    <rdfs:comment xml:lang="vi">Nhãn phân loại do mô hình học sâu (Deep Learning) nhận diện từ hình ảnh của ca.</rdfs:comment>
+  <rdf:Description rdf:nodeID="N1a50c5534e3340da8e5f5e9469e99911">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N44b3e878ca334bca86f86a2927141069"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -160,79 +699,44 @@
     <rdfs:label xml:lang="vi">Phác đồ kháng sinh</rdfs:label>
     <rdfs:comment xml:lang="vi">Sử dụng Oxytetracycline (50-75 mg/kg) hoặc Florfenicol (10 mg/kg) trộn thức ăn 5-7 ngày.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#observedSymptom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">observed symptom</rdfs:label>
-    <rdfs:label xml:lang="vi">triệu chứng quan sát được</rdfs:label>
-    <rdfs:comment xml:lang="vi">Triệu chứng thực tế được người nuôi hoặc chuyên gia ghi nhận tại ca chẩn đoán.</rdfs:comment>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Oreochromis_niloticus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <rdfs:label xml:lang="en">Nile Tilapia</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá rô phi</rdfs:label>
+    <rdfs:comment xml:lang="vi">Loài cá nuôi phổ biến, chịu được biến động môi trường.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#White_Spots_On_Skin">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">White Spots on Skin and Gills</rdfs:label>
+    <rdfs:label xml:lang="vi">Đốm trắng trên da và mang</rdfs:label>
+    <rdfs:comment xml:lang="vi">Các đốm trắng hoặc u hạt mủ li ti trên biểu bì thân và mang cá.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#HerbalTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">Herbal Remedy Treatment</rdfs:label>
+    <rdfs:label xml:lang="vi">Trị liệu thảo dược tự nhiên</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bổ sung tinh dầu tỏi (Allicin) 3-5 ml/kg thức ăn để kháng khuẩn tự nhiên.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#comparisonOperator">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">comparison operator</rdfs:label>
+    <rdfs:label xml:lang="vi">toán tử so sánh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Toán tử logic so sánh số học (&lt;, &gt;, &lt;=, &gt;=).</rdfs:comment>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#DissolvedOxygenRange">
     <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Dissolved Oxygen Range [0.0 - 20.0 mg/L]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Oxy hòa tan DO [0.0 - 20.0 mg/L]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="Ne9af9a8a5e8549d1ad516149add29f18"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DissolvedOxygenRange"/>
+    <owl:equivalentClass rdf:nodeID="N4f3d77a24def494e8acc1b6bdac65451"/>
+    <rdfs:label xml:lang="vi">Miền oxy hòa tan hợp lệ (0 - 20 mg/L)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
-    <rdfs:label xml:lang="vi">Bật quạt khí ban đêm, thay 20% nước, rải vôi CaCO3 2-3 kg/100m3</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterCond_Case003">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <temperatureValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">21.5</temperatureValue>
-    <pHValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.8</pHValue>
-    <dissolvedOxygenValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.8</dissolvedOxygenValue>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Normal Behavior and Appearance</rdfs:label>
-    <rdfs:label xml:lang="vi">Hành vi và ngoại hình bình thường</rdfs:label>
-    <rdfs:comment xml:lang="vi">Cá bơi nhanh nhẹn, ăn khỏe, da vảy và mang sáng bóng nguyên vẹn.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbccc51cbedec476d9108e2aaefe8ad59">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Edwardsiella_ictaluri"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Red_Disease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
-    <rdfs:subClassOf rdf:nodeID="N3c3bd5fdc1894c27b49dc6f4c257bfbe"/>
-    <rdfs:subClassOf rdf:nodeID="Nb06ceaaee1ca4f5797b6201ad00917db"/>
-    <rdfs:subClassOf rdf:nodeID="N7fcec56f67df427ca28bb357ba993efd"/>
-    <rdfs:subClassOf rdf:nodeID="N6eb33a52f7dc4689a1423b958ad5ac84"/>
-    <rdfs:subClassOf rdf:nodeID="N768495b132c94154b2db2649ac8b7fd7"/>
-    <rdfs:label xml:lang="en">Bacterial Red Disease</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh đốm đỏ do vi khuẩn</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh đốm đỏ/xuất huyết do vi khuẩn Gram âm Aeromonas hydrophila gây xuất huyết gốc vây, loét bề mặt da và sưng hậu môn.</rdfs:comment>
-    <dc:source>FAO Fisheries Technical Paper 402; Đặng Thị Hoàng Oanh, Bùi Thị Bích Hằng (2014), Bệnh học Thủy sản.</dc:source>
-    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila_Inst"/>
-    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst"/>
-    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol"/>
-    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#nitriteValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#NitriteRange"/>
-    <rdfs:label xml:lang="en">nitrite value (NO2-)</rdfs:label>
-    <rdfs:label xml:lang="vi">hàm lượng nitrit</rdfs:label>
-    <rdfs:comment xml:lang="vi">Hàm lượng nitrit NO2- đo bằng mg/L (Giới hạn an toàn &lt; 0.1 mg/L; &gt;0.5 mg/L làm tổn hại hồng cầu).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6281cd2ebc444eaf80bf9fdb4f55b589">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#turbidityValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#TurbidityRange"/>
-    <rdfs:label xml:lang="en">turbidity value</rdfs:label>
-    <rdfs:label xml:lang="vi">độ đục / độ trong</rdfs:label>
-    <rdfs:comment xml:lang="vi">Độ trong của nước đo bằng đĩa Secchi tính bằng cm (Khoảng tốt: 25 - 40 cm).</rdfs:comment>
+  <rdf:Description rdf:nodeID="N1a83d48c447d486cb3c0e9504f0797cd">
+    <rdf:first rdf:nodeID="N678242ae9c244da1a2d311dcabc7a7fa"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_004_Healthy_Fish">
     <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
@@ -243,119 +747,74 @@
     <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.975</confidenceScore>
     <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#associatedWithWaterCondition">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:label xml:lang="en">associated with water condition</rdfs:label>
-    <rdfs:label xml:lang="vi">liên quan điều kiện nước</rdfs:label>
-    <rdfs:comment xml:lang="vi">Môi trường nước bất lợi kích phát bệnh bùng phát.</rdfs:comment>
+  <rdf:Description rdf:nodeID="N97712b0f12e94501a6346151d72c8be7">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</xsd:maxInclusive>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#FishCondition">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <rdfs:label xml:lang="en">Conflict Resolution Rule</rdfs:label>
+    <rdfs:label xml:lang="vi">Luật giải quyết mâu thuẫn chẩn đoán</rdfs:label>
+    <rdfs:comment xml:lang="vi">Quy tắc ngữ nghĩa nhận diện và xử lý bất đồng giữa dự đoán AI thị giác và thực tế lâm sàng/dịch tễ.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">Salt Bath Treatment</rdfs:label>
+    <rdfs:label xml:lang="vi">Tắm nước muối</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tắm cá trong dung dịch muối ăn NaCl 2-3% trong 5-10 phút để sát khuẩn và giảm nấm bám.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#riskScoreContribution">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">risk score contribution</rdfs:label>
+    <rdfs:label xml:lang="vi">mức độ đóng góp rủi ro</rdfs:label>
+    <rdfs:comment xml:lang="vi">Điểm rủi ro môi trường bổ sung khi luật thỏa mãn [0.0 - 1.0].</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#inferredDisease">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">inferred disease</rdfs:label>
+    <rdfs:label xml:lang="vi">kết luận bệnh suy luận được</rdfs:label>
+    <rdfs:comment xml:lang="vi">Kết quả chẩn đoán cuối cùng được suy diễn ra từ sự tích hợp bằng chứng ảnh, triệu chứng và thông số nước.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne0afb5a874ce4671b2e013874d245a5d">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">SWRL_Rule_BGD_LowDO</rdfs:label>
+    <rdfs:comment xml:lang="en">DiagnosticCase(?c) ^ hasWaterCondition(?c, ?w) ^ dissolvedOxygenValue(?w, ?do) ^ swrlb:lessThan(?do, 3.5) -&gt; suspectedDisease(?c, Bacterial_Gill_Disease)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#weightSymptom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">weight for symptoms</rdfs:label>
+    <rdfs:label xml:lang="vi">trọng số triệu chứng</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hệ số trọng số của triệu chứng lâm sàng [0.0 - 1.0].</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Trichodina_truttae">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Trichodina spp.</rdfs:label>
+    <rdfs:label xml:lang="vi">Ký sinh trùng Trichodina</rdfs:label>
+    <rdfs:comment xml:lang="vi">Trùng bánh xe ký sinh da và mang cá.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#NitriteRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#NitriteRange"/>
+    <owl:equivalentClass rdf:nodeID="N6e96d9bc26b04482b24bb76f0cd67161"/>
+    <rdfs:label xml:lang="vi">Miền nitrit hợp lệ (0 - 10 mg/L)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Treatment">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label xml:lang="en">Fish Condition</rdfs:label>
-    <rdfs:label xml:lang="vi">Tình trạng sức khỏe cá</rdfs:label>
-    <rdfs:comment xml:lang="vi">Trạng thái sức khỏe tổng quát của đàn cá nuôi, phân chia thành trạng thái khỏe mạnh hoặc bệnh lý.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">Treatment</rdfs:label>
+    <rdfs:label xml:lang="vi">Biện pháp điều trị</rdfs:label>
+    <rdfs:comment xml:lang="vi">Phác đồ can thiệp dùng thuốc kháng sinh, sát trùng hoặc thảo dược theo quy định Bộ NN&amp;PTNT.</rdfs:comment>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AlkalinityRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Alkalinity Range [0.0 - 500.0 mg/L CaCO3]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Độ kiềm [0.0 - 500.0 mg/L CaCO3]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="N939b4ff9d68044b8a5918de19260613f"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ndb454dca2b924e45ab8872a565909b89">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nba0f8baadca345c28b44dfdff0bc3261">
-    <rdf:first rdf:nodeID="N2bfcfb37fd004658a8d279afa2db883b"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Flavobacterium columnare</rdfs:label>
-    <rdfs:label xml:lang="vi">Vi khuẩn Flavobacterium columnare</rdfs:label>
-    <rdfs:comment xml:lang="vi">Vi khuẩn Gram âm dạng que dài gây bệnh thối mang, đốm trắng mang.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-    <rdfs:label xml:lang="en">Water Quality Management</rdfs:label>
-    <rdfs:label xml:lang="vi">Quản lý chất lượng nước ao</rdfs:label>
-    <rdfs:comment xml:lang="vi">Thay nước định kỳ, tăng cường quạt khí để DO &gt; 4.5 mg/L, rải vôi ổn định pH và kiềm.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <owl:versionIRI rdf:resource="http://www.semanticweb.org/fish-disease-ontology/2.0.0"/>
-    <rdfs:label xml:lang="en">Fish Disease Ontology (FDO v2.0)</rdfs:label>
-    <rdfs:label xml:lang="vi">Hệ thống tri thức Ontology Chẩn đoán bệnh cá v2.0</rdfs:label>
-    <rdfs:comment xml:lang="vi">Ontology phục vụ chẩn đoán bệnh cá nước ngọt và nước lợ, kết hợp giữa mô hình học sâu (Deep Learning) và hệ suy diễn tri thức (Semantic Web/HermiT/OWL). Bản chuẩn hóa v2 cập nhật cấu trúc phân cấp, ca chẩn đoán lâm sàng, ràng buộc miền giá trị số học, và căn cứ y văn quốc tế (FAO/WOAH).</rdfs:comment>
-    <dc:creator>Trương Thị Kim Yên - Chuyên ngành HTTTQL, Trường Đại học Nha Trang</dc:creator>
-    <dc:publisher>Trường Đại học Nha Trang (NTU)</dc:publisher>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Saprolegnia_parasitica">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Saprolegnia parasitica</rdfs:label>
-    <rdfs:label xml:lang="vi">Nấm thủy mi Saprolegnia</rdfs:label>
-    <rdfs:comment xml:lang="vi">Nấm nước gây màng nấm bông trắng trên cá bị thương tổn biểu bì.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Na26a850626074e769e0e9eef3af84fb6">
-    <rdf:first rdf:nodeID="N3e82d84d72354ebb805915ff1a7ccde6"/>
-    <rdf:rest rdf:nodeID="Nd3b67299dd3c4235bce2486a900a40fa"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:label xml:lang="en">Parasitic Disease</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh do ký sinh trùng</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các bệnh do ngoại ký sinh trùng (trùng bánh xe, sán lá mang, trùng quả dưa) hoặc nội ký sinh trùng.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#VaccinationPrevention">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-    <rdfs:label xml:lang="en">Vaccination Prevention</rdfs:label>
-    <rdfs:label xml:lang="vi">Tiêm phòng vaccine</rdfs:label>
-    <rdfs:comment xml:lang="vi">Tiêm vaccine phòng bệnh gan thận mủ và đốm đỏ ở quy mô cá giống.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#HealthyState"/>
-    <rdfs:subClassOf rdf:nodeID="N6a7e17e5699340f9a08716c0319ada34"/>
-    <rdfs:subClassOf rdf:nodeID="Ne158cf8d5ff44b87918b942c64f257bf"/>
-    <rdfs:label xml:lang="en">Healthy Fish</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá khỏe mạnh</rdfs:label>
-    <rdfs:comment xml:lang="vi">Cá phát triển bình thường, biểu mô và mang nguyên vẹn, phản xạ nhanh nhẹn, ăn khỏe.</rdfs:comment>
-    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance_Inst"/>
-    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7fcec56f67df427ca28bb357ba993efd">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Abdominal_Distension"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterTemperatureRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Water Temperature Range [0.0 - 45.0 C]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Nhiệt độ nước [0.0 - 45.0 °C]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="N840f9f1e978b4fea8a74ec0e356af767"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#BiosecurityMeasures">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-    <rdfs:label xml:lang="en">Biosecurity Measures</rdfs:label>
-    <rdfs:label xml:lang="vi">Biện pháp an toàn sinh học</rdfs:label>
-    <rdfs:comment xml:lang="vi">Cách ly cá mới 14 ngày, khử trùng lưới cụ, kiểm tra con giống sạch mầm bệnh.</rdfs:comment>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Pathogen">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -366,545 +825,31 @@
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
     <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticRule"/>
+    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ammoniaValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AmmoniaRange"/>
-    <rdfs:label xml:lang="en">ammonia value (TAN)</rdfs:label>
-    <rdfs:label xml:lang="vi">hàm lượng amoniac</rdfs:label>
-    <rdfs:comment xml:lang="vi">Tổng nồng độ amoniac TAN đo bằng mg/L (Giới hạn an toàn &lt; 0.3 mg/L; &gt;1.0 mg/L gây độc mang).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6a2afdb691d54b7680a0df96f3bec021">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="Na26a850626074e769e0e9eef3af84fb6"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Aphanomyces invadans</rdfs:label>
-    <rdfs:label xml:lang="vi">Nấm thủy mi Aphanomyces invadans</rdfs:label>
-    <rdfs:comment xml:lang="vi">Nấm nước Oomycete gây hội chứng lở loét biểu mô dịch tễ (EUS).</rdfs:comment>
-    <dc:source>WOAH Aquatic Manual 2021.</dc:source>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <rdfs:label xml:lang="en">Salt Bath Treatment</rdfs:label>
-    <rdfs:label xml:lang="vi">Tắm nước muối</rdfs:label>
-    <rdfs:comment xml:lang="vi">Tắm cá trong dung dịch muối ăn NaCl 2-3% trong 5-10 phút để sát khuẩn và giảm nấm bám.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Symptom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label xml:lang="en">Symptom</rdfs:label>
-    <rdfs:label xml:lang="vi">Triệu chứng lâm sàng</rdfs:label>
-    <rdfs:comment xml:lang="vi">Dấu hiệu bệnh lý bên ngoài hoặc hành vi bất thường quan sát được trên cá.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Excess_Mucus_Production">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Excess Mucus Secretion</rdfs:label>
-    <rdfs:label xml:lang="vi">Tăng tiết chất nhớt</rdfs:label>
-    <rdfs:comment xml:lang="vi">Da và mang bao phủ một lớp nhớt đục do phản ứng tự vệ chống ký sinh trùng.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#dissolvedOxygenValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DissolvedOxygenRange"/>
-    <rdfs:label xml:lang="en">dissolved oxygen value</rdfs:label>
-    <rdfs:label xml:lang="vi">oxy hòa tan (DO)</rdfs:label>
-    <rdfs:comment xml:lang="vi">Hàm lượng oxy hòa tan đo bằng mg/L (Tối ưu &gt; 4.5 mg/L; &lt;3.0 mg/L gây stress hô hấp và thối mang).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne9af9a8a5e8549d1ad516149add29f18">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="Ncabf7c66001a4808814ab3f0ba02a412"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Anabas_testudineus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">Climbing Perch</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá rô đồng</rdfs:label>
-    <rdfs:comment xml:lang="vi">Loài cá bản địa dễ bị ảnh hưởng bởi nấm EUS vào mùa lạnh.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Skin Ulcers and Hemorrhage</rdfs:label>
-    <rdfs:label xml:lang="vi">Loét da và xuất huyết</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các vết loét, đốm đỏ, hoại tử biểu mô hoặc xuất huyết vây và thân.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Cyprinus_carpio">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">Common Carp</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá chép</rdfs:label>
-    <rdfs:comment xml:lang="vi">Loài cá nước ngọt phổ biến, hay mắc bệnh thối mang khi mật độ nuôi cao.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N2b58cf42c3c2432caa6c039ee0015f1c">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Saprolegnia_parasitica"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
-    <rdfs:label xml:lang="vi">Kháng sinh Oxytetracycline 50-75mg/kg hoặc Florfenicol 10mg/kg trong 7 ngày</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#confidenceScore">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConfidenceScoreRange"/>
-    <rdfs:label xml:lang="en">confidence score</rdfs:label>
-    <rdfs:label xml:lang="vi">độ tin cậy của AI</rdfs:label>
-    <rdfs:comment xml:lang="vi">Điểm xác suất chuẩn hóa (Softmax probability) của mô hình Deep Learning trong khoảng [0.0, 1.0].</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#alkalinityValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AlkalinityRange"/>
-    <rdfs:label xml:lang="en">alkalinity value</rdfs:label>
-    <rdfs:label xml:lang="vi">độ kiềm</rdfs:label>
-    <rdfs:comment xml:lang="vi">Độ kiềm tính bằng mg/L CaCO3 (Khoảng thích hợp: 80 - 160 mg/L).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
-    <rdfs:subClassOf rdf:nodeID="N1215d1fed9664929846d9a4a4b707ed9"/>
-    <rdfs:subClassOf rdf:nodeID="N6addb20202ca4d8d8463c005b357a339"/>
-    <rdfs:subClassOf rdf:nodeID="N35260891760e4223bff00da493e5a2e0"/>
-    <rdfs:subClassOf rdf:nodeID="N6281cd2ebc444eaf80bf9fdb4f55b589"/>
-    <rdfs:subClassOf rdf:nodeID="Ne1ec3a374fb34e608f822d30d816dd48"/>
-    <rdfs:label xml:lang="en">Epizootic Ulcerative Syndrome (EUS)</rdfs:label>
-    <rdfs:label xml:lang="vi">Hội chứng lở loét dịch tễ (EUS)</rdfs:label>
-    <rdfs:comment xml:lang="vi">Hội chứng lở loét dịch tễ ở cá do nấm nước Oomycete Aphanomyces invadans (trước đây gọi là A. piscicida) gây ra, đặc trưng bởi các u hạt viêm lan rộng và vết loét sâu cơ. Căn cứ khoa học: Về mặt phân loại sinh học hiện đại, Aphanomyces thuộc ngành Oomycota (nhóm Stramenopiles), trước đây xếp vào nấm thực sự (True Fungi). Trong bệnh học thủy sản ứng dụng (FAO, OIE/WOAH), bệnh được xếp vào nhóm 'Fungal/Oomycete Diseases' do khuẩn ty dạng sợi và đáp ứng tạo u hạt tương tự nấm.</rdfs:comment>
-    <dc:source>FAO Fisheries Technical Paper No. 402, Lilley et al. (1997); WOAH Manual of Diagnostic Tests for Aquatic Animals (2021), Chapter 2.3.2.</dc:source>
-    <causedBy rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans_Inst"/>
-    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst"/>
-    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Salt_Bath_2Percent"/>
-    <hasTreatment rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant"/>
-    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Pangasius_hypophthalmus">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">Striped Catfish</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá tra</rdfs:label>
-    <rdfs:comment xml:lang="vi">Loài cá nước ngọt xuất khẩu chủ lực vùng ĐBSCL.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Aeromonas hydrophila</rdfs:label>
-    <rdfs:label xml:lang="vi">Vi khuẩn Aeromonas hydrophila</rdfs:label>
-    <rdfs:comment xml:lang="vi">Vi khuẩn Gram âm gây bệnh đốm đỏ, xuất huyết hoại tử.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb9199fb644604fff9a7c25fe52426230">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf8f0a95b301d40ebbdd6ed6dd61e6c0b">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Channa_striata">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <rdfs:label xml:lang="en">Striped Snakehead</rdfs:label>
-    <rdfs:label xml:lang="vi">Cá lóc</rdfs:label>
-    <rdfs:comment xml:lang="vi">Loài cá ăn thịt nước ngọt, mẫn cảm cao với EUS và đốm đỏ.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6a89441ba4084bf6aabe65b53242a5ad">
-    <rdf:first rdf:nodeID="N373acbcd96d84b8b9f104339cf31d12c"/>
-    <rdf:rest rdf:nodeID="N0a5420b692b8428c82868658c1e2037c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Fin_Rot">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Fin Rot and Erosion</rdfs:label>
-    <rdfs:label xml:lang="vi">Thối vây, mòn vây</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các tia vây bị rách nát, cụt dần do vi khuẩn xâm lấn.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label xml:lang="en">Diagnostic Case</rdfs:label>
-    <rdfs:label xml:lang="vi">Ca chẩn đoán lâm sàng</rdfs:label>
-    <rdfs:comment xml:lang="vi">Biểu diễn một ca chẩn đoán thực tế tại một ao nuôi/mẫu cá cụ thể. Một instance của DiagnosticCase lưu vết các bằng chứng từ ảnh chụp (mô hình AI dự đoán), triệu chứng quan sát tại chỗ, và đo đạc chất lượng nước để đưa vào bộ suy luận tri thức.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Prevention">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label xml:lang="en">Prevention</rdfs:label>
-    <rdfs:label xml:lang="vi">Biện pháp phòng bệnh tổng hợp</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các quy trình an toàn sinh học và quản lý môi trường theo quy chuẩn QCVN 02-19:2014/BNNPTNT.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb1432899590046b4b219bce019ce729b">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="Nf064b42e7a284a5abf86ebb89306cd0c"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasPrevention">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasSymptom">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
     <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-    <rdfs:label xml:lang="en">has prevention</rdfs:label>
-    <rdfs:label xml:lang="vi">có biện pháp phòng bệnh</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết trạng thái cá với quy trình an toàn sinh học và quản lý môi trường phòng ngừa.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">has symptom</rdfs:label>
+    <rdfs:label xml:lang="vi">có triệu chứng / biểu hiện</rdfs:label>
+    <rdfs:comment xml:lang="vi">Liên kết trạng thái cá với biểu hiện lâm sàng tương ứng.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne1ec3a374fb34e608f822d30d816dd48">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BiosecurityMeasures"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
-    <rdfs:label xml:lang="vi">Vết loét da xuất huyết cơ</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Trichodiniasis">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
-    <rdfs:label xml:lang="en">Trichodiniasis</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh trùng bánh xe</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh do ngoại ký sinh trùng hình đĩa bánh xe Trichodina ký sinh trên mang và da cá, làm cá ngứa ngáy, tăng tiết chất nhớt.</rdfs:comment>
-    <dc:source>Giáo trình Ký sinh trùng Thủy sản, ĐH Thủy sản Nha Trang.</dc:source>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf064b42e7a284a5abf86ebb89306cd0c">
-    <rdf:first rdf:nodeID="N302574894f784e92ae45e90304db17d0"/>
-    <rdf:rest rdf:nodeID="Nba0f8baadca345c28b44dfdff0bc3261"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#HealthyState">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:label xml:lang="en">Healthy State</rdfs:label>
-    <rdfs:label xml:lang="vi">Trạng thái khỏe mạnh</rdfs:label>
-    <rdfs:comment xml:lang="vi">Trạng thái cá hoàn toàn bình thường, phản xạ tốt, không có dấu hiệu bệnh lý.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Salt_Bath_2Percent">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment"/>
-    <rdfs:label xml:lang="vi">Tắm nước muối 2-3% trong 5-10 phút</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N4cc013d51c6a47b2baeb4c9856a6adc6">
-    <rdf:first rdf:nodeID="N690a38cf86b5440fafd7251682908c88"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#White_Spots_On_Skin">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">White Spots on Skin and Gills</rdfs:label>
-    <rdfs:label xml:lang="vi">Đốm trắng trên da và mang</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các đốm trắng hoặc u hạt mủ li ti trên biểu bì thân và mang cá.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd3b67299dd3c4235bce2486a900a40fa">
-    <rdf:first rdf:nodeID="N29d9ef986f414aae8dd726e47e76fac4"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Disease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:label xml:lang="en">Disease</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh lý ở cá</rdfs:label>
-    <rdfs:comment xml:lang="vi">Trạng thái bất thường về hình thái, giải phẫu hoặc chức năng sinh lý do tác nhân mầm bệnh hoặc suy thoái môi trường.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N69349d1850514263b43f08b36750ec4e">
-    <rdf:first rdf:nodeID="N26222f18bc52479b92d2225158b16f9d"/>
-    <rdf:rest rdf:nodeID="N6a3d586e517f4f2583fd052081fc8fe8"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N3c3bd5fdc1894c27b49dc6f4c257bfbe">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Trichodina_truttae">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Trichodina spp.</rdfs:label>
-    <rdfs:label xml:lang="vi">Ký sinh trùng Trichodina</rdfs:label>
-    <rdfs:comment xml:lang="vi">Trùng bánh xe ký sinh da và mang cá.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#ConfidenceScoreRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Confidence Score Range [0.0 - 1.0]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Độ tin cậy Softmax [0.0 - 1.0]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="Nb949adcd4af5408a9a766d0e8106afce"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#PotassiumPermanganateTreatment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <rdfs:label xml:lang="en">Potassium Permanganate Bath</rdfs:label>
-    <rdfs:label xml:lang="vi">Tắm thuốc tím KMnO4</rdfs:label>
-    <rdfs:comment xml:lang="vi">Tắm thuốc tím 2-4 ppm trong 30-45 phút sát trùng ngoại sinh vật.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N196e20d6d7f7421795acff5900e09c26">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.0</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasTreatment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <rdfs:label xml:lang="en">has treatment</rdfs:label>
-    <rdfs:label xml:lang="vi">có biện pháp điều trị</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết bệnh với phác đồ thuốc/hóa chất xử lý.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasWaterCondition">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:label xml:lang="en">has water condition</rdfs:label>
-    <rdfs:label xml:lang="vi">có điều kiện nước</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết ca bệnh với tập hợp số liệu chất lượng nước ao đo đạc tại thời điểm kiểm tra.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nf15765f0764d4050bbba8d3fc3216c47">
+  <rdf:Description rdf:nodeID="Nb3f51bb21db54234a43866b73f87fb4c">
     <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6eb33a52f7dc4689a1423b958ad5ac84">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Treatment">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-    <rdfs:label xml:lang="en">Treatment</rdfs:label>
-    <rdfs:label xml:lang="vi">Biện pháp điều trị</rdfs:label>
-    <rdfs:comment xml:lang="vi">Phác đồ can thiệp dùng thuốc kháng sinh, sát trùng hoặc thảo dược theo quy định Bộ NN&amp;PTNT.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#pHValue">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#PHRange"/>
-    <rdfs:label xml:lang="en">pH value</rdfs:label>
-    <rdfs:label xml:lang="vi">giá trị pH</rdfs:label>
-    <rdfs:comment xml:lang="vi">Độ pH của nước ao (Khoảng thích hợp: 6.5 - 8.5; &lt;6.0 làm cá dễ tổn thương biểu bì).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N302574894f784e92ae45e90304db17d0">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Enteric_Septicemia_Catfish">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
-    <rdfs:subClassOf rdf:nodeID="Nbccc51cbedec476d9108e2aaefe8ad59"/>
-    <rdfs:subClassOf rdf:nodeID="N8ddcdcd0c46e42ff81011a1bdcbe5054"/>
-    <rdfs:subClassOf rdf:nodeID="Ndb454dca2b924e45ab8872a565909b89"/>
-    <rdfs:label xml:lang="en">Enteric Septicemia of Catfish (ESC)</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh gan thận mủ ở cá tra</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bệnh gan thận mủ do vi khuẩn Edwardsiella ictaluri gây đốm trắng mủ trên gan, thận, lách ở cá tra, cá lăng.</rdfs:comment>
-    <dc:source>Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ, 2014; OIE Aquatic Manual.</dc:source>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_005_Conflict_Warning">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:label xml:lang="vi">Ca chẩn đoán 005 - Cảnh báo mâu thuẫn AI và Triệu chứng lâm sàng</rdfs:label>
-    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
-    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish"/>
-    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst"/>
-    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.684</confidenceScore>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
-    <rdfs:label xml:lang="en">Antiseptic Disinfection</rdfs:label>
-    <rdfs:label xml:lang="vi">Sát trùng nguồn nước</rdfs:label>
-    <rdfs:comment xml:lang="vi">Tạt sát trùng bằng Iodine 90 (0.3-0.5 ppm) hoặc BKC 80% (0.5-0.8 ppm).</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Abdominal_Distension">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Lethargy_Anorexia">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">Abdominal Distension</rdfs:label>
-    <rdfs:label xml:lang="vi">Chướng bụng, sưng hậu môn</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bụng trướng to chứa dịch vàng hoặc hồng, hậu môn lồi đỏ.</rdfs:comment>
+    <rdfs:label xml:lang="en">Lethargy and Anorexia</rdfs:label>
+    <rdfs:label xml:lang="vi">Bơi lờ đờ, bỏ ăn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Cá bơi tách đàn, nổi đầu, mất phương hướng hoặc bỏ ăn hoàn toàn.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:label xml:lang="en">Bacterial Disease</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh do vi khuẩn</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các bệnh truyền nhiễm do vi khuẩn gây ra (Aeromonas, Flavobacterium, Edwardsiella...).</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FungalDisease"/>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#NutritionalImmunitySupport">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
-    <rdfs:label xml:lang="en">Nutritional and Immune Support</rdfs:label>
-    <rdfs:label xml:lang="vi">Hỗ trợ dinh dưỡng và miễn dịch</rdfs:label>
-    <rdfs:comment xml:lang="vi">Bổ sung Vitamin C (100-200 mg/kg), Beta-glucan và men vi sinh đường ruột.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N64a3431d83e44d47abbd38ffa152e143">
+  <rdf:Description rdf:nodeID="N5b11d93db9a542fab23c18ea8324348a">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
     <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne158cf8d5ff44b87918b942c64f257bf">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ned54a63cfa714810b979eac5fd9cae7c">
-    <rdf:first rdf:nodeID="N07011e797d5f43e49f04b4101cb34a3a"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N768495b132c94154b2db2649ac8b7fd7">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb06ceaaee1ca4f5797b6201ad00917db">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_003_EUS_Winter">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:label xml:lang="vi">Ca chẩn đoán 003 - Hội chứng EUS mùa lạnh</rdfs:label>
-    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
-    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
-    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers_Inst"/>
-    <hasWaterCondition rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCond_Case003"/>
-    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.887</confidenceScore>
-    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare"/>
-    <rdfs:label xml:lang="vi">Chủng vi khuẩn Flavobacterium columnare</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Edwardsiella_ictaluri">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">Edwardsiella ictaluri</rdfs:label>
-    <rdfs:label xml:lang="vi">Vi khuẩn Edwardsiella ictaluri</rdfs:label>
-    <rdfs:comment xml:lang="vi">Vi khuẩn gây bệnh gan thận mủ ở cá da trơn.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8cadfe3e378847deba10f82cdba92387">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance"/>
-    <rdfs:label xml:lang="vi">Ngoại hình bình thường, bơi nhanh</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N427714e4dd7a49469ef2188effc7129f">
-    <rdf:first rdf:nodeID="Ned2c66c6e38b468c90b02305cfeff73d"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans"/>
-    <rdfs:label xml:lang="vi">Chủng nấm thủy mi Aphanomyces invadans</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills"/>
-    <rdfs:label xml:lang="vi">Tơ mang rách xơ xác dính nhớt</rdfs:label>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nb949adcd4af5408a9a766d0e8106afce">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="N69349d1850514263b43f08b36750ec4e"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N565ba4754cbc4db587a273c515e49662">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="N0152edaeb08e482abef8d4a7f7e1d337"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N8ddcdcd0c46e42ff81011a1bdcbe5054">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#White_Spots_On_Skin"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#FungalDisease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:label xml:lang="en">Fungal and Oomycete Disease</rdfs:label>
-    <rdfs:label xml:lang="vi">Bệnh do nấm và nấm nước</rdfs:label>
-    <rdfs:comment xml:lang="vi">Các bệnh do nấm hoặc Oomycetes (thủy khuẩn/nấm nước) gây ra ở cá nước ngọt và nước lợ.</rdfs:comment>
-    <owl:disjointWith rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ParasiticDisease"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N6a7e17e5699340f9a08716c0319ada34">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#NitriteRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Nitrite Range [0.0 - 10.0 mg/L]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Nitrit NO2 [0.0 - 10.0 mg/L]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="Ne8e81860b99744a29929bd7c78b1a3ae"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AmmoniaRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Ammonia TAN Range [0.0 - 10.0 mg/L]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Amoniac tổng TAN [0.0 - 10.0 mg/L]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="N565ba4754cbc4db587a273c515e49662"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N373acbcd96d84b8b9f104339cf31d12c">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_001_BGD_Consistent">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:label xml:lang="vi">Ca chẩn đoán 001 - Bệnh thối mang (Đồng thuận)</rdfs:label>
-    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
-    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
-    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Inst"/>
-    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.942</confidenceScore>
-    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7f95009a444b4b97a0ea0b9f247e09d9">
-    <rdf:first rdf:nodeID="N196e20d6d7f7421795acff5900e09c26"/>
-    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#inferredDisease">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:label xml:lang="en">inferred disease</rdfs:label>
-    <rdfs:label xml:lang="vi">bệnh được suy luận</rdfs:label>
-    <rdfs:comment xml:lang="vi">Kết luận chẩn đoán cuối cùng do bộ suy luận tri thức (Reasoner) chứng minh trên cơ sở tổng hợp bằng chứng.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N939b4ff9d68044b8a5918de19260613f">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="Nbcf45f1bd105423887c33518091ddb17"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ncabf7c66001a4808814ab3f0ba02a412">
-    <rdf:first rdf:nodeID="N8091b401dd194ae99213e943e74afbb0"/>
-    <rdf:rest rdf:nodeID="Ned54a63cfa714810b979eac5fd9cae7c"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N29d9ef986f414aae8dd726e47e76fac4">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">150.0</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#causedBy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Disease"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
-    <rdfs:label xml:lang="en">caused by</rdfs:label>
-    <rdfs:label xml:lang="vi">gây ra bởi</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết bệnh với tác nhân vi sinh vật gây bệnh tương ứng.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N690a38cf86b5440fafd7251682908c88">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</xsd:maxInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Ne8e81860b99744a29929bd7c78b1a3ae">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
-    <owl:withRestrictions rdf:nodeID="N6a89441ba4084bf6aabe65b53242a5ad"/>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbcf45f1bd105423887c33518091ddb17">
-    <rdf:first rdf:nodeID="N8be8fde4acdb4f2dabae8626663f04f2"/>
-    <rdf:rest rdf:nodeID="N427714e4dd7a49469ef2188effc7129f"/>
   </rdf:Description>
   <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#caseDate">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
@@ -914,80 +859,382 @@
     <rdfs:label xml:lang="vi">thời gian ca chẩn đoán</rdfs:label>
     <rdfs:comment xml:lang="vi">Thời điểm ghi nhận ca chẩn đoán.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N26222f18bc52479b92d2225158b16f9d">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="N7ef04488bce449d5a644c311c5dc3545">
-    <rdf:first rdf:nodeID="Nf15765f0764d4050bbba8d3fc3216c47"/>
-    <rdf:rest rdf:nodeID="N7f95009a444b4b97a0ea0b9f247e09d9"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#hasSymptom">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
-    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
-    <rdfs:label xml:lang="en">has symptom</rdfs:label>
-    <rdfs:label xml:lang="vi">có triệu chứng / biểu hiện</rdfs:label>
-    <rdfs:comment xml:lang="vi">Liên kết trạng thái cá (khỏe mạnh hoặc bệnh lý) với biểu hiện lâm sàng tương ứng.</rdfs:comment>
-  </rdf:Description>
-  <rdf:Description rdf:nodeID="Nd1096357910543538904241cbc102ec4">
+  <rdf:Description rdf:nodeID="Na10da26dbea442b3aa9cd946954e28dc">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
-    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
-    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N0a5420b692b8428c82868658c1e2037c">
-    <rdf:first rdf:nodeID="N69fd1f8dca174ef8b8c07ee896896ffa"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Channa_striata">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <rdfs:label xml:lang="en">Striped Snakehead</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá lóc</rdfs:label>
+    <rdfs:comment xml:lang="vi">Loài cá ăn thịt nước ngọt, mẫn cảm cao với EUS và đốm đỏ.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne681e41a11ef46f6b9d0c73528956728">
+    <rdf:first rdf:nodeID="N36c9d7b8d3f14a7e834db3f300e09f71"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N07011e797d5f43e49f04b4101cb34a3a">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">20.0</xsd:maxInclusive>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AmmoniaRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AmmoniaRange"/>
+    <owl:equivalentClass rdf:nodeID="Ndf0a4ee70eac44098ad135869d27a9dc"/>
+    <rdfs:label xml:lang="vi">Miền amoniac TAN hợp lệ (0 - 10 mg/L)</rdfs:label>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N35260891760e4223bff00da493e5a2e0">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#pHValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#PHRange"/>
+    <rdfs:label xml:lang="en">pH value</rdfs:label>
+    <rdfs:label xml:lang="vi">giá trị pH</rdfs:label>
+    <rdfs:comment xml:lang="vi">Độ pH của nước ao.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N36fe9fc60ebf4c5492e8dc25ebb16e8c">
+    <rdf:first rdf:nodeID="N3cfc8518ea2d4311b6b00743c79496a7"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#targetParameter">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">target parameter</rdfs:label>
+    <rdfs:label xml:lang="vi">thông số môi trường mục tiêu</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tên thông số nước được kiểm tra (temperature, ph, dissolved_oxygen, ammonia, nitrite).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AlkalinityRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AlkalinityRange"/>
+    <owl:equivalentClass rdf:nodeID="Ne692607170044f9883af846178b4b993"/>
+    <rdfs:label xml:lang="vi">Miền độ kiềm hợp lệ (0 - 500 mg/L CaCO3)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N22867418b47d4c1f978e4231b9f4c59d">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasTreatment"/>
     <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N8091b401dd194ae99213e943e74afbb0">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_BGD_LowOxygen">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dissolved_oxygen</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.5</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Hàm lượng oxy hòa tan thấp (&lt;3.5 mg/L) gây stress hô hấp nghiêm trọng và kích hoạt bệnh thối mang do Flavobacterium columnare.</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Tăng cường quạt nước / sục khí đáy khẩn cấp để nâng DO lên trên 4.5 mg/L.</remedialAction>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N12bab257b12f415383707b9baff49792">
+    <rdf:first rdf:nodeID="N448875339c424c3d9d9e0e5aa380d848"/>
+    <rdf:rest rdf:nodeID="N93465acbd0d74dbdbf2494c60f3b97fc"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#observedSymptom">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Symptom"/>
+    <rdfs:label xml:lang="en">observed symptom</rdfs:label>
+    <rdfs:label xml:lang="vi">triệu chứng quan sát được</rdfs:label>
+    <rdfs:comment xml:lang="vi">Triệu chứng thực tế được người nuôi hoặc chuyên gia ghi nhận tại ca chẩn đoán.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf7d75954cdfc445b82c26ef887791038">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#remedialAction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:label xml:lang="en">remedial action</rdfs:label>
+    <rdfs:label xml:lang="vi">biện pháp cải tạo môi trường</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hướng dẫn kỹ thuật xử lý nước ao để loại bỏ mầm bệnh.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance_Inst">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance"/>
+    <rdfs:label xml:lang="vi">Ngoại hình bình thường, bơi nhanh</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Case_001_BGD_Consistent">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DiagnosticCase"/>
+    <rdfs:label xml:lang="vi">Ca chẩn đoán 001 - Bệnh thối mang (Đồng thuận)</rdfs:label>
+    <hasAIPrediction rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
+    <suspectedDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
+    <observedSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Observation_01"/>
+    <confidenceScore rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.942</confidenceScore>
+    <inferredDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Bacterial_Gill_Disease"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Enteric_Septicemia_Catfish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BacterialDisease"/>
+    <rdfs:label xml:lang="en">Enteric Septicemia of Catfish</rdfs:label>
+    <rdfs:label xml:lang="vi">Bệnh gan thận mủ ở cá tra</rdfs:label>
+    <rdfs:comment xml:lang="vi">Bệnh nhiễm khuẩn máu đường ruột do vi khuẩn Edwardsiella ictaluri gây ra trên cá tra (Pangasius hypophthalmus).</rdfs:comment>
+    <dc:source>Giáo trình Bệnh học Thủy sản, ĐH Cần Thơ.</dc:source>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#nitriteValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#NitriteRange"/>
+    <rdfs:label xml:lang="en">nitrite value (NO2-)</rdfs:label>
+    <rdfs:label xml:lang="vi">hàm lượng nitrit</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hàm lượng nitrit NO2- đo bằng mg/L.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N925f2bdb75ef41de90d512f4fe562e8f">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">SWRL_Rule_EUS_ColdWater</rdfs:label>
+    <rdfs:comment xml:lang="en">DiagnosticCase(?c) ^ hasWaterCondition(?c, ?w) ^ temperatureValue(?w, ?t) ^ swrlb:lessThan(?t, 25.0) -&gt; suspectedDisease(?c, Epizootic_Ulcerative_Syndrome)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Necf7f2b926964feea45480aa17783766">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N0e1697aae55a4ef9b10b459c7e065d59"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_EUS_AcidicWater">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ph</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.5</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Độ pH thấp (&lt;6.5) làm tổn thương lớp nhớt biểu bì cá, tạo điều kiện cho bào tử nấm EUS xâm nhập sâu vào cơ.</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Bón vôi nông nghiệp CaCO3 hoặc vôi tôi Ca(OH)2 liều lượng 2-3 kg/100m3 để nâng pH lên 7.0 - 7.5.</remedialAction>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Salt_Bath_2Percent">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#SaltBathTreatment"/>
+    <rdfs:label xml:lang="vi">Tắm nước muối 2-3% trong 5-10 phút</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ndf0a4ee70eac44098ad135869d27a9dc">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="Nd2c7d17188b14efc909be147cdbc2167"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Healthy_Fish">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#HealthyState"/>
+    <rdfs:subClassOf rdf:nodeID="Na10da26dbea442b3aa9cd946954e28dc"/>
+    <rdfs:subClassOf rdf:nodeID="N7ec14fd3863349769ba6407102d9c15a"/>
+    <rdfs:label xml:lang="en">Healthy Fish Condition</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá khỏe mạnh</rdfs:label>
+    <rdfs:comment xml:lang="vi">Lớp đại diện cho cá không phát hiện bệnh lý, tương ứng nhãn phân loại 'Healthy Fish' trong mô hình Deep Learning.</rdfs:comment>
+    <hasSymptom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Normal_Behavior_Appearance_Inst"/>
+    <hasPrevention rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#PotassiumPermanganateTreatment">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">Potassium Permanganate Bath</rdfs:label>
+    <rdfs:label xml:lang="vi">Tắm thuốc tím KMnO4</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tắm thuốc tím 2-4 ppm trong 30-45 phút sát trùng ngoại sinh vật.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#temperatureValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterCondition"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterTemperatureRange"/>
+    <rdfs:label xml:lang="en">temperature value</rdfs:label>
+    <rdfs:label xml:lang="vi">giá trị nhiệt độ</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nhiệt độ nước đo bằng độ C.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#BiosecurityMeasures">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Prevention"/>
+    <rdfs:label xml:lang="en">Biosecurity Measures</rdfs:label>
+    <rdfs:label xml:lang="vi">Biện pháp an toàn sinh học</rdfs:label>
+    <rdfs:comment xml:lang="vi">Cách ly cá mới 14 ngày, khử trùng lưới cụ, kiểm tra con giống sạch mầm bệnh.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb10eccafba794b03968fd79f1b5fe5b6">
     <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Nbe5ae564174246cf943ab5b8c53bf45a">
+  <rdf:Description rdf:nodeID="N8278082ae51941a993b2ba4acae68264">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N12bab257b12f415383707b9baff49792"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Iodine_BKC_Disinfectant">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection"/>
+    <rdfs:label xml:lang="vi">Sát trùng nguồn nước với Iodine 90 (0.4 ppm) hoặc BKC 80% (0.6 ppm)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N6abf5856ce7d47dd9cf48bafacbd6578">
+    <rdf:first rdf:nodeID="Nef03b9ffb13f4a03b6bcd9a48a18db7a"/>
+    <rdf:rest rdf:nodeID="Ne681e41a11ef46f6b9d0c73528956728"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N46f712e4d5ea4f929859052ad8ba254e">
+    <rdf:first rdf:nodeID="N73d76f92d4ec4512806443bf35a92cf4"/>
+    <rdf:rest rdf:nodeID="Naf31de282e4e48e4b0ec3fd08e35ccb8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#AntisepticDisinfection">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Treatment"/>
+    <rdfs:label xml:lang="en">Antiseptic Disinfection</rdfs:label>
+    <rdfs:label xml:lang="vi">Sát trùng nguồn nước</rdfs:label>
+    <rdfs:comment xml:lang="vi">Tạt sát trùng bằng Iodine 90 (0.3-0.5 ppm) hoặc BKC 80% (0.5-0.8 ppm).</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Anabas_testudineus">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishSpecies"/>
+    <rdfs:label xml:lang="en">Climbing Perch</rdfs:label>
+    <rdfs:label xml:lang="vi">Cá rô đồng</rdfs:label>
+    <rdfs:comment xml:lang="vi">Loài cá bản địa dễ bị ảnh hưởng bởi nấm EUS vào mùa lạnh.</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne692607170044f9883af846178b4b993">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <owl:withRestrictions rdf:nodeID="N7a98b330bcf44622bbe450ccc2b38e60"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N93964796488d46eda31978e8805f6365">
+    <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+    <rdfs:label xml:lang="en">SWRL_Rule_Conflict_Healthy_Ulcers</rdfs:label>
+    <rdfs:comment xml:lang="en">DiagnosticCase(?c) ^ hasAIPrediction(?c, Healthy_Fish) ^ observedSymptom(?c, Skin_Ulcers) -&gt; hasConflict(?c, true)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans_Isolate_NJM9701">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aphanomyces_invadans"/>
+    <rdfs:label xml:lang="vi">Chủng nấm thủy mi Aphanomyces invadans</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N44b3e878ca334bca86f86a2927141069">
+    <rdf:first rdf:nodeID="N39d725347a5742708eb72de2c4f8583c"/>
+    <rdf:rest rdf:nodeID="Nd39d33d0e0d14d4998c5301ec4c3dd46"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Rule_EUS_ColdWater">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <triggersDisease rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Epizootic_Ulcerative_Syndrome"/>
+    <targetParameter rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</targetParameter>
+    <comparisonOperator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">&lt;</comparisonOperator>
+    <thresholdValue rdf:datatype="http://www.w3.org/2001/XMLSchema#float">25.0</thresholdValue>
+    <riskScoreContribution rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.5</riskScoreContribution>
+    <ruleWarningMessage xml:lang="vi">Nhiệt độ nước lạnh (&lt;25.0°C) là yếu tố kích phát dịch bệnh hàng đầu của nấm thủy mi Aphanomyces invadans (EUS).</ruleWarningMessage>
+    <remedialAction xml:lang="vi">Dâng mực nước ao &gt;1.5m, hạn chế kéo lưới làm trầy xước cá; rải vôi CaCO3 (2-3 kg/100m3) để ổn định nhiệt độ tầng đáy.</remedialAction>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nfb92427b91ac408a8ae6c6ae9d2f7783">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
     <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
     <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#TurbidityRange">
-    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
-    <rdfs:label xml:lang="en">Secchi Turbidity Range [0.0 - 150.0 cm]</rdfs:label>
-    <rdfs:label xml:lang="vi">Miền giá trị Độ trong đĩa Secchi [0.0 - 150.0 cm]</rdfs:label>
-    <owl:equivalentClass rdf:nodeID="N6a2afdb691d54b7680a0df96f3bec021"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Edwardsiella_ictaluri">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Pathogen"/>
+    <rdfs:label xml:lang="en">Edwardsiella ictaluri</rdfs:label>
+    <rdfs:label xml:lang="vi">Vi khuẩn Edwardsiella ictaluri</rdfs:label>
+    <rdfs:comment xml:lang="vi">Vi khuẩn gây bệnh gan thận mủ ở cá da trơn.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="Ned2c66c6e38b468c90b02305cfeff73d">
-    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">500.0</xsd:maxInclusive>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#conflictingAIPrediction">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#ConflictResolutionRule"/>
+    <rdfs:range rdf:resource="http://www.semanticweb.org/fish-disease-ontology#FishCondition"/>
+    <rdfs:label xml:lang="en">conflicting AI prediction</rdfs:label>
+    <rdfs:label xml:lang="vi">dự đoán AI mâu thuẫn</rdfs:label>
+    <rdfs:comment xml:lang="vi">Nhãn dự đoán từ mô hình AI bị mâu thuẫn với thực tế lâm sàng hoặc dịch tễ.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N2bfcfb37fd004658a8d279afa2db883b">
+  <rdf:Description rdf:nodeID="Nfea461a1e65340199dbfd2ce21689119">
     <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">14.0</xsd:maxInclusive>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N241197c1d6fc493e9da5efc39d9b7083">
-    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+  <rdf:Description rdf:nodeID="N213b0c6f015d4e00baf6599e39a39e7c">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasPrevention"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#BiosecurityMeasures"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N0152edaeb08e482abef8d4a7f7e1d337">
-    <rdf:first rdf:nodeID="N241197c1d6fc493e9da5efc39d9b7083"/>
-    <rdf:rest rdf:nodeID="N4cc013d51c6a47b2baeb4c9856a6adc6"/>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#thresholdValue">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#EnvironmentalRiskRule"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">threshold value</rdfs:label>
+    <rdfs:label xml:lang="vi">giá trị ngưỡng kích hoạt</rdfs:label>
+    <rdfs:comment xml:lang="vi">Ngưỡng số học kích hoạt luật rủi ro môi trường.</rdfs:comment>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N6a3d586e517f4f2583fd052081fc8fe8">
-    <rdf:first rdf:nodeID="N25a7ed52f7c64d5d9ab0842790621990"/>
+  <rdf:Description rdf:nodeID="N93465acbd0d74dbdbf2494c60f3b97fc">
+    <rdf:first rdf:nodeID="Nfea461a1e65340199dbfd2ce21689119"/>
     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N3e82d84d72354ebb805915ff1a7ccde6">
+  <rdf:Description rdf:nodeID="Nc8e94c561d3d4306acd74e5d397f6c8b">
     <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N69fd1f8dca174ef8b8c07ee896896ffa">
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila_Strain_AH01">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila"/>
+    <rdfs:label xml:lang="vi">Chủng vi khuẩn Aeromonas hydrophila AH-01</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#weightAI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdfs:domain rdf:resource="http://www.semanticweb.org/fish-disease-ontology#DecisionWeightConfig"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    <rdfs:label xml:lang="en">weight for AI</rdfs:label>
+    <rdfs:label xml:lang="vi">trọng số thị giác AI</rdfs:label>
+    <rdfs:comment xml:lang="vi">Hệ số trọng số của mô hình Deep Learning trong công thức lai [0.0 - 1.0].</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Pond_Water_Aeration_Liming">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterQualityManagement"/>
+    <rdfs:label xml:lang="vi">Bật quạt khí ban đêm, thay 20% nước, rải vôi CaCO3 2-3 kg/100m3</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Oxytetracycline_Florfenicol">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#AntibioticTreatment"/>
+    <rdfs:label xml:lang="vi">Kháng sinh Oxytetracycline 50-75mg/kg hoặc Florfenicol 10mg/kg trong 7 ngày</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N73d76f92d4ec4512806443bf35a92cf4">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7a98b330bcf44622bbe450ccc2b38e60">
+    <rdf:first rdf:nodeID="Nb3f51bb21db54234a43866b73f87fb4c"/>
+    <rdf:rest rdf:nodeID="Nc0477c208f5b48be9e20636e6a7c18b2"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N3cfc8518ea2d4311b6b00743c79496a7">
     <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</xsd:maxInclusive>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila_Inst">
-    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Aeromonas_hydrophila"/>
-    <rdfs:label xml:lang="vi">Chủng vi khuẩn Aeromonas hydrophila</rdfs:label>
+  <rdf:Description rdf:nodeID="N448875339c424c3d9d9e0e5aa380d848">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
   </rdf:Description>
-  <rdf:Description rdf:nodeID="N25a7ed52f7c64d5d9ab0842790621990">
+  <rdf:Description rdf:nodeID="Nd2c7d17188b14efc909be147cdbc2167">
+    <rdf:first rdf:nodeID="Nc8e94c561d3d4306acd74e5d397f6c8b"/>
+    <rdf:rest rdf:nodeID="N36fe9fc60ebf4c5492e8dc25ebb16e8c"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N708a163010d7400c85f91665168217e8">
+    <rdf:first rdf:nodeID="N97712b0f12e94501a6346151d72c8be7"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb91f899bffc44ccf9e19009f7c24792b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#causedBy"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N115a3d7049c04655aaba1e4d48043c37">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#WaterTemperatureRange">
+    <rdf:type rdf:resource="http://www.w3.org/2000/01/rdf-schema#Datatype"/>
+    <owl:equivalentClass rdf:resource="http://www.semanticweb.org/fish-disease-ontology#WaterTemperatureRange"/>
+    <owl:equivalentClass rdf:nodeID="Nb5783221197941d8b7e9b2abece9f641"/>
+    <rdfs:label xml:lang="vi">Miền nhiệt độ nước hợp lệ (0 - 45 °C)</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills_Observation_01">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Frayed_Gills"/>
+    <rdfs:label xml:lang="vi">Tơ mang rách xơ xác dính nhớt</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf31de282e4e48e4b0ec3fd08e35ccb8">
+    <rdf:first rdf:nodeID="N23610429805343f79a62d72332f5d817"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N23610429805343f79a62d72332f5d817">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">45.0</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N678242ae9c244da1a2d311dcabc7a7fa">
     <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.0</xsd:maxInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N625de60f30f94beb81f718c3c35a505a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Restriction"/>
+    <owl:onProperty rdf:resource="http://www.semanticweb.org/fish-disease-ontology#hasSymptom"/>
+    <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Skin_Ulcers"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N39d725347a5742708eb72de2c4f8583c">
+    <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</xsd:minInclusive>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5932111344e74c729ece7cf0382faf67">
+    <rdf:first rdf:nodeID="Nb10eccafba794b03968fd79f1b5fe5b6"/>
+    <rdf:rest rdf:nodeID="N708a163010d7400c85f91665168217e8"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare_Strain_FC02">
+    <rdf:type rdf:resource="http://www.semanticweb.org/fish-disease-ontology#Flavobacterium_columnare"/>
+    <rdfs:label xml:lang="vi">Chủng vi khuẩn Flavobacterium columnare FC-02</rdfs:label>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc0477c208f5b48be9e20636e6a7c18b2">
+    <rdf:first rdf:nodeID="N1c3b6a183d5a486da5cb8b331a05c0c4"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N36c9d7b8d3f14a7e834db3f300e09f71">
+    <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#float">10.0</xsd:maxInclusive>
   </rdf:Description>
 </rdf:RDF>
