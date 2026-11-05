@@ -1,0 +1,15 @@
+﻿Chỉ số,Giá trị
+Mô hình & Checkpoint,EfficientNet-B0 (models/efficientnet_b0_best.pth)
+Cơ sở chọn checkpoint (Validation),Macro-F1 Validation: 0.7648 ± 0.0303 (5 random seeds)
+Số tham số mô hình,4.01 triệu tham số (Kích thước: 16.35 MB)
+Độ trễ suy luận (CPU Intel),61.3 ms/ảnh (Throughput: 16.3 FPS)
+Tập kiểm thử (Held-out Test),225 ảnh thuộc 16 cá thể (Specimens) độc lập
+Test Accuracy,82.67% (0.8267)
+Test Macro-Precision,87.43% (0.8743)
+Test Macro-Recall,85.27% (0.8527)
+Test Macro-F1,85.12% (0.8512)
+Test Weighted-F1,82.06% (0.8206)
+Bacterial Gill Diseases (F1),98.36% (Support: 31)
+Bacterial Red Diseases (F1),72.86% (Support: 83)
+Epizootic Ulcerative Syndrome (F1),85.29% (Support: 35)
+Healthy Fish (F1),83.98% (Support: 76)
