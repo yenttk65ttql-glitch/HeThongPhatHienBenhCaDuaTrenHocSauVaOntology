@@ -5,55 +5,59 @@ skinparam shadowing false
 skinparam defaultFontName "Arial"
 skinparam defaultFontSize 12
 
+' Định nghĩa các Actor là người dùng bên ngoài hệ thống
 actor "Kỹ thuật viên / Người nuôi" as Tech <<Primary>>
-actor "Bộ suy luận Ontology\n(HermiT/SPARQL Engine)" as Onto <<System>>
 actor "Chuyên gia / Quản trị viên" as Expert <<Secondary>>
 
 rectangle "Hệ thống Hỗ trợ Chẩn đoán Bệnh cá (AI - Ontology)" {
 
-    package "Thu thập Dữ liệu Đầu vào" {
-        usecase "UC1: Tải ảnh cá bệnh" as UC1
-        usecase "UC2: Nhập triệu chứng & thông số nước" as UC2
-        usecase "UC2.1: Xác thực dữ liệu đầu vào\n(Input Validation)" as UC2_1
+    package "Phân hệ Tiếp nhận Dữ liệu & Thị giác" {
+        usecase "UC1: Tải ảnh cá nghi bệnh" as UC1
+        usecase "UC2: Xem kết quả AI & bản đồ nhiệt Grad-CAM" as UC2
+        usecase "UC3: Nhập triệu chứng & thông số môi trường nước" as UC3
+        usecase "UC3.1: Xác thực dữ liệu hợp lệ (Input Validation)" as UC3_1
     }
 
-    package "Xử lý Thị giác Máy tính (Deep Learning)" {
-        usecase "UC3: Nhận diện bệnh qua ảnh\n(EfficientNet-B0 Top-3)" as UC3
-        usecase "UC4: Xem bản đồ nhiệt Grad-CAM" as UC4
+    package "Phân hệ Suy luận & Hỗ trợ Quyết định" {
+        usecase "UC4: Chẩn đoán kết hợp AI–Ontology (Hybrid Diagnosis)" as UC4
+        usecase "UC5: Cảnh báo & phân giải mâu thuẫn (Conflict Resolution)" as UC5
+        usecase "UC6: Tra cứu phác đồ điều trị & biện pháp phòng ngừa" as UC6
+        usecase "UC7: Xuất báo cáo ca bệnh lâm sàng (Export Clinical Report)" as UC7
     }
 
-    package "Suy luận & Hỗ trợ Quyết định" {
-        usecase "UC5: Chẩn đoán kết hợp AI–Ontology\n(Hybrid Reasoning Engine)" as UC5
-        usecase "UC6: Cảnh báo & phân giải mâu thuẫn\n(Conflict Resolution)" as UC6
-        usecase "UC7: Tra cứu phác đồ điều trị\nvà biện pháp phòng ngừa" as UC7
-        usecase "UC8: Xuất báo cáo ca bệnh lâm sàng\n(Clinical Report)" as UC8
+    package "Phân hệ Quản lý Hồ sơ & Lịch sử Ca bệnh" {
+        usecase "UC8: Xem lịch sử & tra cứu hồ sơ chẩn đoán (Diagnostic History)" as UC8
     }
 
-    package "Quản trị Tri thức" {
-        usecase "UC9: Cập nhật quy tắc & ngưỡng môi trường\n(Ontology Rules Management)" as UC9
+    package "Phân hệ Quản trị Tri thức Chuyên ngành" {
+        usecase "UC9: Quản lý & cập nhật quy tắc Ontology (Rules Management)" as UC9
+        usecase "UC10: Cấu hình trọng số chẩn đoán (Decision Weights Config)" as UC10
     }
 }
 
-' Quan hệ giữa Actor và Use Case
+' Tương tác của Kỹ thuật viên / Người nuôi
 Tech --> UC1
 Tech --> UC2
+Tech --> UC3
 Tech --> UC4
-Tech --> UC5
+Tech --> UC6
 Tech --> UC7
 Tech --> UC8
 
-UC5 --> Onto : "Truy vấn SPARQL &\nkiểm tra tính nhất quán"
+' Tương tác của Chuyên gia / Quản trị viên
+Expert --> UC8
 Expert --> UC9
+Expert --> UC10
 
 ' Quan hệ <<include>>
-UC2 ..> UC2_1 : <<include>>
-UC5 ..> UC3 : <<include>>
-UC5 ..> UC2 : <<include>>
-UC8 ..> UC5 : <<include>>
-UC8 ..> UC7 : <<include>>
+UC3 ..> UC3_1 : <<include>>
+UC4 ..> UC1 : <<include>>
+UC4 ..> UC3 : <<include>>
+UC7 ..> UC4 : <<include>>
+UC7 ..> UC6 : <<include>>
 
 ' Quan hệ <<extend>>
-UC6 .> UC5 : <<extend>>\n(Khi phát hiện mâu thuẫn\ngiữa AI và lâm sàng/môi trường)
-UC4 .> UC3 : <<extend>>\n(Hỗ trợ giải thích thị giác)
+UC2 .> UC1 : <<extend>>\n(Hỗ trợ giải thích thị giác)
+UC5 .> UC4 : <<extend>>\n(Kích hoạt khi phát hiện mâu thuẫn\ngiữa AI và triệu chứng/môi trường)
 
 @enduml
