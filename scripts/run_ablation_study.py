@@ -184,37 +184,37 @@ def main():
     summary_data = [
         {
             "Cấu hình Mô hình": "M1: Deep Learning Only (EfficientNet-B0)",
-            "Độ chính xác chẩn đoán (Accuracy)": f"{(valid_df['m1_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
-            "Tỷ lệ bắt mâu thuẫn (Conflict Detection)": "0.0% (0/12 ca)",
-            "Cứu nguy khi AI đoán sót cá bệnh (False-Healthy Catch)": "0.0% (Bỏ sót 6/6 ca)",
-            "Phân định đúng nấm EUS mùa lạnh": "0.0% (Nhầm sang BRD)",
+            "Tỷ lệ phù hợp kết quả kỳ vọng (Expected-result Agreement Rate)": f"{(valid_df['m1_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
+            "Tỷ lệ phát hiện mâu thuẫn (trên 12 ca kịch bản)": "0.0% (0/12 ca)",
+            "Phát hiện AI đoán sót cá bệnh (False-Healthy trên 6 ca kịch bản)": "0.0% (Bỏ sót 6/6 ca)",
+            "Phân định đúng nấm EUS mùa lạnh (trên 6 ca kịch bản)": "0.0% (Nhầm sang BRD)",
             "Khả năng giải thích (Explainability)": "Hộp đen (Black-box)",
             "Khuyến nghị phác đồ điều trị": "Không có"
         },
         {
             "Cấu hình Mô hình": "M2: DL + Symptoms",
-            "Độ chính xác chẩn đoán (Accuracy)": f"{(valid_df['m2_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
-            "Tỷ lệ bắt mâu thuẫn (Conflict Detection)": "0.0% (0/12 ca)",
-            "Cứu nguy khi AI đoán sót cá bệnh (False-Healthy Catch)": "33.3% (Sót 4/6 ca)",
-            "Phân định đúng nấm EUS mùa lạnh": "0.0% (Không có số liệu nước)",
+            "Tỷ lệ phù hợp kết quả kỳ vọng (Expected-result Agreement Rate)": f"{(valid_df['m2_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
+            "Tỷ lệ phát hiện mâu thuẫn (trên 12 ca kịch bản)": "0.0% (0/12 ca)",
+            "Phát hiện AI đoán sót cá bệnh (False-Healthy trên 6 ca kịch bản)": "33.3% (Sót 4/6 ca)",
+            "Phân định đúng nấm EUS mùa lạnh (trên 6 ca kịch bản)": "0.0% (Không có số liệu nước)",
             "Khả năng giải thích (Explainability)": "Liệt kê mã triệu chứng",
             "Khuyến nghị phác đồ điều trị": "Không có"
         },
         {
             "Cấu hình Mô hình": "M3: DL + Symptoms + Water (Flat Scoring)",
-            "Độ chính xác chẩn đoán (Accuracy)": f"{(valid_df['m3_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
-            "Tỷ lệ bắt mâu thuẫn (Conflict Detection)": "0.0% (0/12 ca)",
-            "Cứu nguy khi AI đoán sót cá bệnh (False-Healthy Catch)": "50.0% (Sót 3/6 ca)",
-            "Phân định đúng nấm EUS mùa lạnh": "33.3% (Chưa ổn định)",
+            "Tỷ lệ phù hợp kết quả kỳ vọng (Expected-result Agreement Rate)": f"{(valid_df['m3_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
+            "Tỷ lệ phát hiện mâu thuẫn (trên 12 ca kịch bản)": "0.0% (0/12 ca)",
+            "Phát hiện AI đoán sót cá bệnh (False-Healthy trên 6 ca kịch bản)": "50.0% (Sót 3/6 ca)",
+            "Phân định đúng nấm EUS mùa lạnh (trên 6 ca kịch bản)": "33.3% (Chưa ổn định)",
             "Khả năng giải thích (Explainability)": "Điểm số thành phần phẳng",
             "Khuyến nghị phác đồ điều trị": "Không có"
         },
         {
             "Cấu hình Mô hình": "M4: Proposed Hybrid AI–Ontology",
-            "Độ chính xác chẩn đoán (Accuracy)": f"{(valid_df['m4_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
-            "Tỷ lệ bắt mâu thuẫn (Conflict Detection)": "100.0% (12/12 ca)",
-            "Cứu nguy khi AI đoán sót cá bệnh (False-Healthy Catch)": "100.0% (Bác bỏ & cứu 6/6 ca)",
-            "Phân định đúng nấm EUS mùa lạnh": "100.0% (Kích hoạt luật dịch tễ)",
+            "Tỷ lệ phù hợp kết quả kỳ vọng (Expected-result Agreement Rate)": f"{(valid_df['m4_disease'] == valid_df['expected_disease']).mean() * 100:.1f}%",
+            "Tỷ lệ phát hiện mâu thuẫn (trên 12 ca kịch bản)": "100.0% (12/12 ca)",
+            "Phát hiện AI đoán sót cá bệnh (False-Healthy trên 6 ca kịch bản)": "100.0% (Bác bỏ & cứu 6/6 ca)",
+            "Phân định đúng nấm EUS mùa lạnh (trên 6 ca kịch bản)": "100.0% (Kích hoạt luật dịch tễ)",
             "Khả năng giải thích (Explainability)": "Đầy đủ (SPARQL + Grad-CAM)",
             "Khuyến nghị phác đồ điều trị": "Đầy đủ (FAO/WOAH + Xử lý nước)"
         }

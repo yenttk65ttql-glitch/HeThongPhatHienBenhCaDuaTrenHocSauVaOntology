@@ -1,4 +1,4 @@
-﻿Cấu hình Mô hình,Độ chính xác chẩn đoán (Accuracy),Tỷ lệ bắt mâu thuẫn (Conflict Detection),Cứu nguy khi AI đoán sót cá bệnh (False-Healthy Catch),Phân định đúng nấm EUS mùa lạnh,Khả năng giải thích (Explainability),Khuyến nghị phác đồ điều trị
+﻿Cấu hình Mô hình,Tỷ lệ phù hợp kết quả kỳ vọng (Expected-result Agreement Rate),Tỷ lệ phát hiện mâu thuẫn (trên 12 ca kịch bản),Phát hiện AI đoán sót cá bệnh (False-Healthy trên 6 ca kịch bản),Phân định đúng nấm EUS mùa lạnh (trên 6 ca kịch bản),Khả năng giải thích (Explainability),Khuyến nghị phác đồ điều trị
 M1: Deep Learning Only (EfficientNet-B0),61.9%,0.0% (0/12 ca),0.0% (Bỏ sót 6/6 ca),0.0% (Nhầm sang BRD),Hộp đen (Black-box),Không có
 M2: DL + Symptoms,64.3%,0.0% (0/12 ca),33.3% (Sót 4/6 ca),0.0% (Không có số liệu nước),Liệt kê mã triệu chứng,Không có
 M3: DL + Symptoms + Water (Flat Scoring),66.7%,0.0% (0/12 ca),50.0% (Sót 3/6 ca),33.3% (Chưa ổn định),Điểm số thành phần phẳng,Không có

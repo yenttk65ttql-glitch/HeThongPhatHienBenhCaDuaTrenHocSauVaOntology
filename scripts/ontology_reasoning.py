@@ -58,8 +58,9 @@ class FishDiseaseReasoner:
     Toàn bộ tri thức và ngưỡng luật được nạp động từ OWL Ontology thông qua SPARQL.
     """
     
-    def __init__(self, ontology_path: Optional[str] = None, mapping_path: Optional[str] = None):
+    def __init__(self, ontology_path: Optional[str] = None, mapping_path: Optional[str] = None, low_ai_confidence_threshold: float = 0.50):
         project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.low_ai_confidence_threshold = low_ai_confidence_threshold
         
         # 1. Tự động xác định đường dẫn file Ontology
         if ontology_path is None or not os.path.exists(ontology_path):
@@ -315,7 +316,7 @@ class FishDiseaseReasoner:
                     "active_weights": {"w_ai": w_ai, "w_symptom": w_sym, "w_water": w_water},
                     "conflict_detected": False,
                     "conflict_type": "INPUT_VALIDATION_ERROR",
-                    "low_ai_confidence": (top_ai_conf < 0.50),
+                    "low_ai_confidence": (top_ai_conf < self.low_ai_confidence_threshold),
                     "missing_water_data": (len(water_measurements) == 0),
                     "missing_symptoms": (len(observed_symptoms) == 0)
                 },
@@ -344,7 +345,7 @@ class FishDiseaseReasoner:
         # ---------------------------------------------------------
         # BƯỚC 1: XỬ LÝ ĐỘ TIN CẬY THẤP & DỮ LIỆU THIẾU
         # ---------------------------------------------------------
-        low_ai_confidence = (top_ai_conf < 0.50)
+        low_ai_confidence = (top_ai_conf < self.low_ai_confidence_threshold)
         if low_ai_confidence:
             validation_warnings.append(
                 f"Độ tin cậy từ mô hình AI thị giác ở mức thấp ({top_ai_conf:.1%}). Cần ưu tiên bằng chứng lâm sàng và dịch tễ học."
@@ -422,15 +423,18 @@ class FishDiseaseReasoner:
         explanation = ""
         inferred_disease = top_ai_name
         
-        # Mâu thuẫn 1: AI Healthy nhưng có triệu chứng bệnh lý hoại tử
-        has_pathology = any(
-            s in ["SYM_SKIN_ULCERS", "SYM_FRAYED_GILLS", "SYM_ABDOMINAL_DISTENSION", "SYM_LETHARGY"]
-            for s in observed_symptoms
-        )
+        # Mâu thuẫn 1: Tri thức triệu chứng bệnh lý trích xuất động từ Ontology/Mappings (loại trừ Healthy State)
+        pathology_symptoms = set()
+        for k, m in self.mappings.items():
+            if m.get("class_name") != "Healthy Fish":
+                for s in m.get("typical_symptoms", []):
+                    pathology_symptoms.add(s["code"])
+                    pathology_symptoms.add(s["uri"])
+        has_pathology = any(s in pathology_symptoms for s in observed_symptoms)
         
-        # Mâu thuẫn 2: Kích hoạt luật dịch tễ nước lạnh / axit của nấm EUS
+        # Mâu thuẫn 2: Kích hoạt luật dịch tễ nấm EUS (truy vấn động từ EnvironmentalRiskRule trong OWL)
         cold_eus_active = any(
-            r["disease_name"] == "Epizootic Ulcerative Syndrome (EUS)" and r["param"] in ["temperature", "ph"]
+            r["disease_name"] == "Epizootic Ulcerative Syndrome (EUS)"
             for r in matched_env_rules
         )
         
