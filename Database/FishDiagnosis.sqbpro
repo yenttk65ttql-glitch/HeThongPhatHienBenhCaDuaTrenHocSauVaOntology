@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="FishDiagnosis.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2780"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="diagnostic_cases" custom_title="0" dock_id="1" table="4,16:maindiagnostic_cases"/><dock_state state="000000ff00000000fd00000001000000020000043b0000030efc0100000001fb000000160064006f0063006b00420072006f007700730065003101000000000000043b0000011800ffffff000002580000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="ai_predictions" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="82"/><column index="2" value="62"/><column index="3" value="47"/><column index="4" value="52"/><column index="5" value="124"/><column index="6" value="105"/><column index="7" value="300"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="diagnostic_cases" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="50"/><column index="2" value="52"/><column index="3" value="156"/><column index="4" value="98"/><column index="5" value="187"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- 1. Bảng lưu trữ thông tin người dùng (người chăn nuôi, chuyên gia...)
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    full_name TEXT,
+    role TEXT,
+    email TEXT,
+    password_hash TEXT
+);
+
+-- 2. Bảng lưu trữ thông tin chung của một ca chẩn đoán
+CREATE TABLE diagnostic_cases (
+    case_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    fish_species_uri TEXT,
+    note TEXT,
+    FOREIGN KEY (user_id) REFERENCES users(user_id)
+);
+
+-- 3. Bảng lưu trữ hình ảnh tải lên của ca chẩn đoán
+CREATE TABLE case_images (
+    image_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    case_id INTEGER,
+    file_path TEXT,
+    original_name TEXT,
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id)
+);
+
+-- 4. Bảng lưu phiên bản và thông tin của model Deep Learning đã chạy
+CREATE TABLE model_runs (
+    run_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    model_name TEXT,
+    version TEXT,
+    metrics_json TEXT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 5. Bảng lưu kết quả dự đoán từ AI dựa trên hình ảnh
+-- Bảng này giải quyết yêu cầu truy vết: Ảnh nào -&gt; Model nào -&gt; Top-k prediction
+CREATE TABLE ai_predictions (
+    prediction_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image_id INTEGER,
+    run_id INTEGER,
+    case_id INTEGER,
+    predicted_label TEXT,
+    confidence_score REAL,
+    topk_json TEXT, -- Lưu Top-k prediction dưới dạng JSON (vd: [{&quot;label&quot;:&quot;disease_A&quot;,&quot;score&quot;:0.9},...])
+    FOREIGN KEY (image_id) REFERENCES case_images(image_id),
+    FOREIGN KEY (run_id) REFERENCES model_runs(run_id),
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id)
+);
+
+-- 6. Bảng danh mục các triệu chứng (Ontology)
+CREATE TABLE symptoms (
+    symptom_code TEXT PRIMARY KEY,
+    symptom_name TEXT,
+    symptom_uri TEXT
+);
+
+-- 7. Bảng nối: Triệu chứng cụ thể trong một ca chẩn đoán
+CREATE TABLE case_symptoms (
+    case_id INTEGER,
+    symptom_code TEXT,
+    selected_value TEXT,
+    PRIMARY KEY (case_id, symptom_code),
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id),
+    FOREIGN KEY (symptom_code) REFERENCES symptoms(symptom_code)
+);
+
+-- 8. Bảng thông số môi trường nước của ca chẩn đoán
+CREATE TABLE water_measurements (
+    measurement_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    case_id INTEGER,
+    temperature REAL,
+    ph REAL,
+    dissolved_oxygen REAL,
+    ammonia REAL,
+    nitrite REAL,
+    alkalinity REAL,
+    turbidity REAL,
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id)
+);
+
+-- 9. Bảng lưu kết quả suy luận từ hệ chuyên gia/Ontology
+-- Bảng này giải quyết yêu cầu truy vết: Ontology version, support score, evidence, conflict
+CREATE TABLE reasoning_results (
+    result_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    case_id INTEGER,
+    disease_uri TEXT,
+    support_score REAL, 
+    evidence_json TEXT, -- Lưu danh sách các triệu chứng/chỉ số ủng hộ kết quả (evidence)
+    conflict_json TEXT, -- Lưu danh sách các thông tin mâu thuẫn (conflict)
+    ontology_version TEXT, 
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id)
+);
+
+-- 10. Bảng lưu phác đồ điều trị/đề xuất dựa trên kết quả suy luận
+CREATE TABLE recommendations (
+    recommendation_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    result_id INTEGER,
+    case_id INTEGER,
+    disease_uri TEXT,
+    recommendation_text TEXT,
+    source_note TEXT,
+    FOREIGN KEY (result_id) REFERENCES reasoning_results(result_id),
+    FOREIGN KEY (case_id) REFERENCES diagnostic_cases(case_id)
+);</sql><sql name="SQL 2*">-- 1. Tạo user và ca chẩn đoán
+INSERT INTO users (full_name, role, email) VALUES ('Nguyen Van A', 'Nong dan', 'a@gmail.com');
+INSERT INTO diagnostic_cases (user_id, fish_species_uri, note) VALUES (1, 'Cá tra', 'Cá bơi lờ đờ, có đốm đỏ');
+
+-- 2. Lưu ảnh đầu vào
+INSERT INTO case_images (case_id, file_path, original_name) VALUES (1, '/uploads/ca_tra_dom_do_1.jpg', 'img001.jpg');
+
+-- 3. Lưu thông tin Model AI
+INSERT INTO model_runs (model_name, version) VALUES ('ResNet50_FishDisease', 'v1.2');
+
+-- 4. Lưu kết quả Model AI dự đoán từ ảnh
+INSERT INTO ai_predictions (image_id, run_id, case_id, predicted_label, confidence_score, topk_json) 
+VALUES (1, 1, 1, 'Bệnh xuất huyết', 0.92, '{&quot;Bệnh xuất huyết&quot;: 0.92, &quot;Bệnh gan thận mủ&quot;: 0.05}');
+
+-- 5. Lưu kết quả suy luận từ Ontology (kết hợp AI và triệu chứng)
+INSERT INTO reasoning_results (case_id, disease_uri, support_score, evidence_json, conflict_json, ontology_version)
+VALUES (1, 'Ontology:XuatHuyet', 0.95, '{&quot;triệu chứng&quot;: &quot;đốm đỏ&quot;, &quot;AI&quot;: &quot;xuất huyết&quot;}', '{}', 'Ontology_v2.0');
+
+-- 6. Lưu phác đồ điều trị xuất ra từ hệ thống
+INSERT INTO recommendations (result_id, case_id, disease_uri, recommendation_text, source_note)
+VALUES (1, 1, 'Ontology:XuatHuyet', 'Dùng kháng sinh Oxytetracycline trộn vào thức ăn', 'Tham khảo chuyên gia');
+
+---câu lệnh truy vết
+SELECT 
+    dc.case_id AS Ca_Benh,
+    ci.file_path AS Anh_Dau_Vao,
+    mr.model_name || ' (Phiên bản ' || mr.version || ')' AS Model_AI_Da_Dung,
+    ap.predicted_label AS Ket_Qua_AI,
+    ap.topk_json AS Top_K_Prediction,
+    rr.ontology_version AS Phien_Ban_Ontology,
+    rr.disease_uri AS Ket_Qua_Suy_Luan_Ontology,
+    rr.support_score AS Diem_Ho_Tro,
+    rr.evidence_json AS Bang_Chung_Suy_Luan,
+    rec.recommendation_text AS Phac_Do_Dieu_Tri
+FROM diagnostic_cases dc
+JOIN case_images ci ON dc.case_id = ci.case_id
+JOIN ai_predictions ap ON dc.case_id = ap.case_id
+JOIN model_runs mr ON ap.run_id = mr.run_id
+JOIN reasoning_results rr ON dc.case_id = rr.case_id
+JOIN recommendations rec ON rr.result_id = rec.result_id
+WHERE dc.case_id = 1;</sql><current_tab id="1"/></tab_sql></sqlb_project>
