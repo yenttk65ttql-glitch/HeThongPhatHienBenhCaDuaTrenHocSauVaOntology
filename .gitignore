@@ -16,8 +16,9 @@ models/*.pth
 models/*.pkl
 models/*.h5
 models/*.onnx
-# Giữ lại tệp cấu hình JSON nhỏ trong models
+# Giữ lại tệp cấu hình JSON và checkpoint nén chính thức
 !models/class_to_idx.json
+!models/efficientnet_b0_best.zip
 
 # 3. Python & Jupyter caches
 __pycache__/
@@ -37,8 +38,16 @@ conda-env/
 # 5. Tệp tạm của hệ thống và phần mềm soạn thảo (Word / OS)
 ~$*.docx
 ~$*.doc
+yêu cầu.docx
 *.tmp
 *.log
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# 6. Tệp tải lên và kết quả Grad-CAM tạm thời trong app Streamlit
+app/uploads/*.jpg
+app/uploads/*.jpeg
+app/uploads/*.png
+!app/uploads/test_gradcam.png
+!app/uploads/test_run_gradcam.png

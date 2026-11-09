@@ -97,53 +97,119 @@ flowchart TD
 
 ---
 
-## 🗂️ Cấu trúc Thư mục Dự án
+## 🗂️ Cấu trúc Thư mục Dự án Thống Nhất (Unified Project Structure)
+
+Kho mã nguồn được tổ chức chuẩn hóa và đồng bộ giữa máy tính cục bộ và GitHub thành **9 thư mục cốt lõi**:
 
 ```text
-Project/
-├── .gitignore                      # Cấu hình bỏ qua dataset lớn, weights và caches
-├── requirements.txt                # Danh sách thư viện Python cần thiết
+HeThongPhatHienBenhCaDuaTrenHocSauVaOntology/
+├── .gitignore                      # Cấu hình bỏ qua dataset thô, caches (giữ lại code, CSDL, models zip)
+├── requirements.txt                # Danh sách thư viện Python cần thiết (PyTorch, Streamlit, RDFLib, Owlready2)
 ├── environment.yml                 # File cấu hình môi trường Anaconda
-├── README.md                       # Tài liệu hướng dẫn đồ án
-├── DoAnDraft_v1.docx               # Bản thảo cuốn báo cáo đồ án tốt nghiệp
-├── BaoCaoTienDo_Tuan03.docx        # Báo cáo tiến độ đợt 3 nộp GVHD
+├── README.md                       # Tài liệu hướng dẫn đồ án chi tiết
+├── DoAnDraft_v1.docx               # Toàn văn báo cáo đồ án tốt nghiệp
 │
-├── data/                           # Quản lý dữ liệu (không đẩy raw images lên GitHub)
-│   ├── metadata_clean.csv          # Metadata 1.201 ảnh sạch kèm specimen_id
-│   ├── removed_duplicates.csv      # Báo cáo kiểm toán 936 ảnh trùng lặp đã loại bằng pHash
-│   └── splits/                     # Phân chia dữ liệu train.csv, val.csv, test.csv
+├── app/                            # Ứng dụng Web tương tác Streamlit (Giao diện người dùng)
+│   ├── main.py                     # Giao diện web 3 Tabs: Chẩn đoán ca mới, Lịch sử truy vết, Kiến trúc tri thức
+│   ├── db_helper.py                # Module kết nối CSDL SQLite, quản lý lưu vết và truy vấn lịch sử
+│   └── uploads/                    # Thư mục lưu ảnh người dùng tải lên và ảnh bản đồ nhiệt Grad-CAM
 │
-├── ontology/                       # Hệ thống tri thức Semantic Web
-│   └── FishDiseaseOntology.owl     # File Ontology chuẩn W3C RDF/XML (FDO v2.0)
+├── src/                            # Mã nguồn thực thi pipeline chẩn đoán cốt lõi (Core Modular Engine)
+│   ├── __init__.py                 # Khởi tạo Python package src
+│   ├── predictor.py                # FishDiseasePredictor: Nạp EfficientNet-B0, tiền xử lý ảnh & Top-3 probabilities (hỗ trợ tự động giải nén zip)
+│   ├── gradcam.py                  # FishGradCAM: Trích xuất bản đồ nhiệt Grad-CAM giải thích vùng bệnh (Target: features[-1])
+│   └── hybrid_engine.py            # FishDiseaseHybridPipeline: Pipeline tích hợp toàn diện từ ảnh -> AI -> Grad-CAM -> Ontology -> Báo cáo
 │
-├── notebook/                       # Jupyter Notebooks nghiên cứu & thực nghiệm
-│   ├── 01_data_preparation.ipynb  # Làm sạch, lọc trùng pHash & specimen-aware split
-│   ├── 02_eda.ipynb               # Phân tích khám phá dữ liệu & trực quan hóa
-│   ├── 03_train_baseline.ipynb    # Huấn luyện 4 mô hình CNN (ResNet, MobileNet, EfficientNet)
-│   ├── 04_ontology_reasoning_and_ai_integration.ipynb # Tích hợp AI–Ontology & HermiT
-│   └── label_ontology_mapping.json# Ánh xạ nhãn AI sang URI Ontology kèm triệu chứng & nước
+├── scripts/                        # Kịch bản thực nghiệm, kiểm định và suy luận độc lập
+│   ├── ontology_reasoning.py       # Semantic Execution Engine nạp luật động qua SPARQL (không hard-code ngưỡng)
+│   ├── run_model_selection_protocol.py # Giao thức khóa tập Test, kiểm tra độ ổn định qua 5 random seeds trên Validation
+│   ├── evaluate_final_model_and_gradcam.py # Đánh giá mô hình chốt trên 225 ảnh Test và sinh ma trận nhầm lẫn
+│   ├── test_scenarios_evaluation.py# Đánh giá trên bộ 48 kịch bản kiểm thử mô phỏng có kiểm soát (Logic Test Pass Rate: 100%)
+│   ├── run_ablation_study.py       # Thí nghiệm bóc tách M1 -> M2 -> M3 -> M4 chứng minh vai trò Ontology
+│   ├── sensitivity_analysis_weights.py # Phân tích độ nhạy 4 cấu hình trọng số trên tập Validation
+│   └── build_ontology_v2.py        # Kịch bản tự động cập nhật cấu trúc và luật trong Ontology
 │
-├── scripts/                        # Các module mã nguồn Python độc lập
-│   ├── ontology_reasoning.py       # Module bộ suy luận lai (FishDiseaseReasoner)
-│   ├── build_ontology_v2.py        # Script tự động tạo và cập nhật Ontology v2
-│   └── test_ontology_reasoner_and_cqs.py # Kiểm thử Reasoner HermiT & 5 CQs qua SPARQL
+├── ontology/                       # Hệ thống tri thức bệnh học và dịch tễ học thủy sản (Semantic Web)
+│   └── FishDiseaseOntology.owl     # Bản thể học chuẩn W3C OWL 2 (FDO v2.0): Classes, SWRL Rules, Datatype Facets
 │
-├── diagram/                        # Sơ đồ thiết kế hệ thống
-│   ├── ERD_He_Thong_Chan_Doan_Benh_Ca.drawio # Sơ đồ CSDL 10 bảng (Draw.io)
-│   └── ERD_He_Thong_Chan_Doan_Benh_Ca.puml   # Mã nguồn sơ đồ thực thể liên kết (PlantUML)
+├── database/                       # Cơ sở dữ liệu quan hệ lưu vết ca bệnh và kiểm toán (Audit Trail)
+│   ├── schema.sql                  # Lược đồ DDL chuẩn tạo 10 bảng quan hệ, ràng buộc khóa ngoại và chỉ mục
+│   ├── init_db.py                  # Script Python tự động khởi tạo CSDL từ schema.sql và nạp master seed data
+│   ├── FishDiagnosis.db            # Tệp cơ sở dữ liệu SQLite 3 đã khởi tạo sẵn
+│   └── FishDiagnosis.sqbpro        # Tệp dự án trực quan mở bằng DB Browser for SQLite
 │
-├── reports/                        # Kết quả đánh giá và biểu đồ khoa học (300 DPI)
-│   ├── model_comparison.csv        # Bảng số liệu chi tiết so sánh 4 mô hình
-│   ├── class_distribution.png      # Biểu đồ phân bố các lớp ảnh
-│   ├── splits_distribution.png     # Biểu đồ phân bố tập Train/Val/Test
-│   └── ontology_competency_questions_results.md # Báo cáo kiểm thử 5 CQs bằng SPARQL
+├── models/                         # Checkpoint trọng số mô hình và cấu hình nhãn
+│   ├── class_to_idx.json           # Ánh xạ 4 lớp phân loại: {BGD: 0, BRD: 1, EUS: 2, Healthy: 3}
+│   ├── efficientnet_b0_best.zip    # Checkpoint trọng số chính thức nén (14.39 MB, sẵn sàng trên GitHub, tự động giải nén khi chạy)
+│   └── README.md                   # Hướng dẫn chi tiết về cấu hình checkpoint và cơ chế tự động giải nén
 │
-└── docs/                           # Tài liệu lưu trữ và báo cáo các tuần trước
-    └── archive_reports/            # BaoCaoTienDo_Tuan01.docx, BaoCaoTienDo_Tuan02.docx
+├── notebook/                       # Jupyter Notebooks thực nghiệm có kiểm soát
+│   ├── 01_data_preparation.ipynb  # Lọc trùng lặp pHash <= 5 và phân chia dữ liệu StratifiedGroupKFold theo cá thể
+│   ├── 02_eda.ipynb               # Phân tích khám phá dữ liệu (EDA), phân bố lớp bệnh và loài cá
+│   ├── 03_train_baseline.ipynb    # Huấn luyện và so sánh đối chuẩn 4 mô hình CNN
+│   ├── 04_ontology_reasoning_and_ai_integration.ipynb # Tích hợp AI–Ontology, 48 kịch bản kiểm thử & pipeline chạy thật
+│   └── label_ontology_mapping.json# Ánh xạ nhãn AI sang URI Ontology kèm triệu chứng, ngưỡng nước và phác đồ
+│
+├── diagram/                        # Sơ đồ thiết kế hệ thống và CSDL chuẩn UML
+│   ├── UseCase_He_Thong_Chan_Doan_Benh_Ca.puml # Sơ đồ Use Case chuẩn UML (2 human actors, 10 use cases)
+│   ├── ERD_He_Thong_Chan_Doan_Benh_Ca.drawio   # Sơ đồ ERD 10 bảng (Draw.io)
+│   └── ERD_He_Thong_Chan_Doan_Benh_Ca.puml     # Mã nguồn PlantUML của sơ đồ quan hệ thực thể
+│
+├── reports/                        # Kết quả đánh giá khoa học chính thức duy nhất
+│   ├── official_test_metrics_efficientnet_b0.csv # Bảng tổng hợp các chỉ số Test chính thức
+│   ├── final_model_per_class_metrics.csv         # Bảng chi tiết Precision, Recall, F1 từng lớp trên tập Test
+│   ├── final_model_confusion_matrix.png          # Ma trận nhầm lẫn chuẩn (225 ảnh Test)
+│   ├── ablation_study_summary.csv                # Bảng số liệu nghiên cứu bóc tách M1 -> M4
+│   ├── test_scenarios_results.md                 # Báo cáo chi tiết 48 kịch bản kiểm thử mô phỏng
+│   ├── hybrid_score_sensitivity_analysis.csv     # Bảng phân tích độ nhạy 4 cấu hình trọng số
+│   ├── CHINH_THUC_EFFICIENTNET_B0_METRICS.md     # Giải trình chính thức về bộ số liệu đánh giá
+│   └── archive/                                  # Thư mục lưu trữ kết quả sơ bộ cũ (tránh nhầm lẫn)
+│
+├── data/                           # Metadata và phân chia tập dữ liệu (ảnh raw không đưa lên Git do kích thước lớn)
+│   ├── metadata_clean.csv          # Metadata 1.201 ảnh sạch sau khi lọc pHash
+│   ├── removed_duplicates.csv      # Báo cáo kiểm toán 936 ảnh trùng lặp đã loại bỏ
+│   └── splits/                     # Phân chia dữ liệu: train.csv (863), val.csv (113), test.csv (225)
+│
+└── docs/                           # Báo cáo tiến độ lưu trữ các giai đoạn trước
+    └── archive_reports/            # BaoCaoTienDo_Tuan01.docx, BaoCaoTienDo_Tuan02.docx, BaoCaoTienDo_Tuan03.docx
 ```
 
 ---
 
+
+---
+
+## 🖥️ Hướng dẫn Khởi chạy Ứng dụng Web Chẩn đoán (Streamlit App)
+
+Ứng dụng Streamlit được xây dựng hoàn chỉnh tại thư mục `app/`, hỗ trợ đầy đủ luồng nghiệp vụ thực tế từ ảnh chụp đến phác đồ điều trị và lưu vết CSDL:
+
+### Bước 1: Khởi tạo Cơ sở Dữ liệu (Nếu cài đặt lần đầu)
+Người dùng có thể tái tạo CSDL hoàn chỉnh từ file `schema.sql` bất kỳ lúc nào:
+```bash
+python database/init_db.py
+```
+*(Tùy chọn: Thêm cờ `--force` nếu muốn xóa sạch CSDL cũ và tạo mới lại hoàn toàn).*
+
+### Bước 2: Khởi chạy Ứng dụng Streamlit
+```bash
+streamlit run app/main.py
+```
+Hệ thống sẽ tự động mở giao diện tại: `http://localhost:8501`.
+
+### Các tính năng chính trên giao diện:
+1. **Chẩn đoán Ca Bệnh Mới (Tab 1):**
+   - Tải tệp ảnh cá lên hoặc chọn nhanh ảnh mẫu có sẵn từ tập Test.
+   - Trả về phân phối xác suất Top-3 từ EfficientNet-B0 và bản đồ nhiệt **Grad-CAM XAI**.
+   - Nhập từng trường thông số môi trường nước riêng biệt: Nhiệt độ ($^\circ	ext{C}$), pH, Oxy hòa tan DO ($	ext{mg/L}$), Amoniac TAN ($	ext{mg/L}$), Nitrite ($	ext{mg/L}$).
+   - Chọn các triệu chứng lâm sàng bằng các checkbox độc lập.
+   - Động cơ Ontology tự động bắt mâu thuẫn, tính Điểm Hỗ trợ Hỗn hợp (**Hybrid Support Score**), xếp hạng chẩn đoán phân biệt và đề xuất phác đồ điều trị chuẩn WOAH/FAO.
+   - Tự động lưu toàn bộ hồ sơ phiên chẩn đoán xuống CSDL SQLite (`database/FishDiagnosis.db`).
+2. **Lịch sử Chẩn đoán & Truy Vết Ca Bệnh (Tab 2 - Audit Trail):**
+   - Xem bảng danh sách các ca bệnh đã chẩn đoán kèm bộ lọc theo bệnh và cảnh báo mâu thuẫn.
+   - Chọn một mã hồ sơ để **truy vết toàn diện**: ảnh gốc, ảnh Grad-CAM, phiên bản mô hình (`EfficientNet-B0 v1.0`), phiên bản Ontology (`v2.0.0`), các giá trị nước đo đạc, triệu chứng đã ghi nhận, các luật Ontology kích hoạt và phác đồ đã khuyến nghị.
+3. **Kiến trúc Tri thức (Tab 3):** Tra cứu phân cấp 4 nhóm bệnh và các ngưỡng dịch tễ học chuẩn.
+
+---
 ## ⚙️ Hướng dẫn Cài đặt Môi trường
 
 Dự án yêu cầu **Python 3.10+** và **Java JRE 8+** (để thực thi bộ suy luận HermiT trong Owlready2).
@@ -313,6 +379,72 @@ Tuân thủ nguyên tắc khoa học: **Tuyệt đối không dùng tập Test �
   1. Độ chính xác suy luận (Concordance Rate) đạt **82.3%** ổn định tuyệt đối trên cả 4 cấu hình trọng số, chứng minh kiến trúc suy luận lai có độ bền vững cao (robustness), không bị phụ thuộc thiên lệch vào một cấu hình cụ thể.
   2. Toàn bộ 9 trường hợp mâu thuẫn lâm sàng (như ảnh chụp cá tổn thương nhưng AI đoán Healthy do góc khuất, hoặc bất đồng dịch tễ nước lạnh EUS) đều được phát hiện và xử lý chính xác 100% ở mọi cấu hình.
   3. Cấu hình **Baseline (0.50 - 0.35 - 0.15)** đạt điểm tin cậy trung bình $0.8146$ (trung vị $0.8722$), mang lại sự hài hòa tối ưu giữa nhận diện thị giác tự động và tri thức chuyên gia thủy sản. Biểu đồ phân phối chi tiết được trực quan hóa tại `reports/hybrid_score_sensitivity_plot.png`.
+
+---
+
+### 5. Đánh giá có Kiểm soát với 48 Kịch bản Kiểm thử Mô phỏng (Controlled Test Scenarios)
+
+Thực hiện yêu cầu phương pháp luận của GVHD về việc chuyển từ ca kiểm thử giả lập sang **Đánh giá có kiểm soát (Controlled Evaluation)**:
+* **Chuẩn hóa thuật ngữ:** Không gọi là "ca bệnh thực tế", mà gọi chính xác là **"Kịch bản kiểm thử mô phỏng có kiểm soát"** (do các thông số môi trường và triệu chứng được thiết kế có chủ đích để kiểm tra chương trình).
+* **Mở rộng quy mô:** Từ 10 ca ban đầu mở rộng thành **48 kịch bản mô phỏng toàn diện** bao phủ đầy đủ **9 nhóm tình huống thực tế**:
+
+| STT | Nhóm Kịch Bản Kiểm Thử Mô Phỏng | Số Ca Thử Nghiệm | Số Ca Đạt (PASS) | Tỷ Lệ Đạt (%) |
+| :---: | :--- | :---: | :---: | :---: |
+| 1 | **AI và Ontology đồng thuận** | 6 | 6 | **100.0%** |
+| 2 | **AI Healthy nhưng có triệu chứng bệnh** | 6 | 6 | **100.0%** |
+| 3 | **AI bệnh A nhưng môi trường ủng hộ bệnh B** | 6 | 6 | **100.0%** |
+| 4 | **Confidence thấp (< 50%)** | 5 | 5 | **100.0%** |
+| 5 | **Thiếu thông tin môi trường** | 4 | 4 | **100.0%** |
+| 6 | **Không nhập triệu chứng** | 4 | 4 | **100.0%** |
+| 7 | **Nhiều bệnh có cùng triệu chứng (Chẩn đoán phân biệt)** | 5 | 5 | **100.0%** |
+| 8 | **Giá trị môi trường sát ngưỡng (Boundary testing)** | 6 | 6 | **100.0%** |
+| 9 | **Dữ liệu nhập ngoài phạm vi hợp lệ (Datatype Facets)** | 6 | 6 | **100.0%** |
+| **Tổng** | **TOÀN BỘ 9 NHÓM KIỂM THỬ MÔ PHỎNG** | **48** | **48** | **100.0%** |
+
+* Toàn bộ 48/48 kịch bản (100.0%) đều có định nghĩa rõ `expected_result`, `actual_result` và đạt chuẩn `PASS`.
+* Dữ liệu kết quả chi tiết từng ca được lưu tại [reports/test_scenarios_results.csv](file:///d:/Project/reports/test_scenarios_results.csv) và báo cáo phân tích tại [reports/test_scenarios_results.md](file:///d:/Project/reports/test_scenarios_results.md).
+
+---
+
+### 6. Pipeline Chẩn đoán Chạy Thật từ Ảnh Đầu Vào (End-to-End Hybrid Engine)
+
+Đáp ứng yêu cầu của GVHD: **"Không để toàn bộ logic nằm trong notebook mà phải tách thành các module độc lập"**, hệ thống đã đóng gói toàn bộ luồng xử lý thành các module chuyên trách trong `src/` và `scripts/`:
+
+```mermaid
+flowchart LR
+    A["Ảnh người dùng"] --> B["src/predictor.py\n(Preprocess & EfficientNet-B0)"]
+    B --> C["Top-3 Class Probs"]
+    B --> D["src/gradcam.py\n(Grad-CAM Heatmap)"]
+    C --> E["label_ontology_mapping.json\n(URI Mapping)"]
+    E --> F["scripts/ontology_reasoning.py\n(SPARQL Rule Engine)"]
+    G["Triệu chứng + Môi trường"] --> F
+    F --> H["src/hybrid_engine.py\n(Hồ sơ chẩn đoán toàn diện)"]
+    D --> H
+    H --> I["Kết luận bệnh + Điểm tin cậy lai"]
+    H --> J["Phác đồ điều trị FAO/WOAH & Cải thiện nước"]
+```
+
+#### Hướng dẫn chạy thử nghiệm Pipeline hoàn chỉnh trong Python:
+```python
+from src.hybrid_engine import FishDiseaseHybridPipeline
+
+# 1. Khởi tạo Pipeline
+pipeline = FishDiseaseHybridPipeline()
+
+# 2. Chẩn đoán tự động từ tệp ảnh cá bệnh
+result = pipeline.diagnose(
+    image_input="data/cache_224/test.jpg",
+    observed_symptoms=["SYM_FRAYED_GILLS", "SYM_LETHARGY"],
+    water_measurements={"temperature": 29.0, "ph": 7.2, "dissolved_oxygen": 2.5, "ammonia": 0.7},
+    generate_gradcam=True,
+    gradcam_save_path="reports/demo_end_to_end_gradcam.png"
+)
+
+# 3. In bản báo cáo chẩn đoán lâm sàng chuyên nghiệp
+print(pipeline.format_clinical_report(result))
+```
+
+
 
 ---
 

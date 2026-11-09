@@ -78,6 +78,24 @@ class FishDiseasePredictor:
                     model_path = str(c)
                     break
                     
+        # Nếu chưa có file .pth nhưng có file .zip (trên GitHub), tự động giải nén
+        if model_path is None or not os.path.exists(model_path):
+            zip_candidates = [
+                project_root / "models" / "efficientnet_b0_best.zip",
+                "models/efficientnet_b0_best.zip"
+            ]
+            for zc in zip_candidates:
+                if zc and os.path.exists(zc):
+                    import zipfile
+                    print(f"Phát hiện tệp nén checkpoint {zc}, đang tự động giải nén...")
+                    target_dir = Path(zc).parent
+                    with zipfile.ZipFile(zc, 'r') as zf:
+                        zf.extractall(target_dir)
+                    extracted = target_dir / "efficientnet_b0_best.pth"
+                    if extracted.exists():
+                        model_path = str(extracted)
+                        break
+
         self.model_path = str(model_path)
         
         # 4. Khởi tạo kiến trúc EfficientNet-B0

@@ -8,12 +8,22 @@ from datetime import datetime
 from typing import Dict, List, Any, Optional, Tuple
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = BASE_DIR / "Database" / "FishDiagnosis.db"
+
+def get_db_path() -> Path:
+    p_lower = BASE_DIR / "database" / "FishDiagnosis.db"
+    p_upper = BASE_DIR / "Database" / "FishDiagnosis.db"
+    if p_lower.exists():
+        return p_lower
+    if p_upper.exists():
+        return p_upper
+    return p_lower
+
+DB_PATH = get_db_path()
 UPLOADS_DIR = BASE_DIR / "app" / "uploads"
 UPLOADS_DIR.mkdir(parents=True, exist_ok=True)
 
 def get_connection() -> sqlite3.Connection:
-    conn = sqlite3.connect(str(DB_PATH))
+    conn = sqlite3.connect(str(get_db_path()))
     conn.row_factory = sqlite3.Row
     return conn
 
