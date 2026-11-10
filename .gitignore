@@ -39,6 +39,7 @@ conda-env/
 ~$*.docx
 ~$*.doc
 yêu cầu.docx
+*_backup.docx
 *.tmp
 *.log
 .DS_Store
